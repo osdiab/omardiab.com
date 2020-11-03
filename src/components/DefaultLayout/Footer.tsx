@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { pageSectionCss } from "src/styles/pageSection";
 import { css } from "@emotion/core";
-import Link from "next/link";
+import { Link } from "src/components/Link";
 
 const infoSectionCss = css`
   display: flex;

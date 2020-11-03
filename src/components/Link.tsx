@@ -52,19 +52,23 @@ const AbsoluteLink = ({ href: href, appearance, children }: LinkProps) => {
 };
 
 const RelativeLink = ({ href, appearance, children }: LinkProps) => {
-  const linkProps: React.PropsWithChildren<RouterLinkProps> = {
-    children,
-    href,
-  };
   switch (appearance) {
     default:
       logInvalidAppearance(appearance);
     // fallthrough
     case undefined: // fallthrough
     case LinkAppearance.HYPERLINK:
-      return <RouterLink css={hyperlinkCss} {...linkProps} />;
+      return (
+        <RouterLink href={href}>
+          <a css={hyperlinkCss}>{children}</a>
+        </RouterLink>
+      );
     case LinkAppearance.UNSTYLED:
-      return <RouterLink css={unstyledLinkCss} {...linkProps} />;
+      return (
+        <RouterLink href={href}>
+          <a css={unstyledLinkCss}>{children}</a>
+        </RouterLink>
+      );
   }
 };
 
