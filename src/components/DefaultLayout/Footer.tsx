@@ -32,7 +32,7 @@ export const Footer = (): JSX.Element => (
     <section css={infoSectionCss}>
       <p>
         Like this site? Feel free to{" "}
-        <Link href="https://github.com/osdiab/osdiab.github.io/">
+        <Link href="https://github.com/osdiab/omardiab.com">
           fork it on Github
         </Link>{" "}
         and make it your own.
