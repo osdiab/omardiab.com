@@ -24,6 +24,8 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "react/react-in-jsx-scope": "off", // not necessary anymore
+    "react/prop-types": "off", // typescript handles types already
+    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"], // interfaces more performant
   },
   settings: { react: { version: "detect" } },
 };
