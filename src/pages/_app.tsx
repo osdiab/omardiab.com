@@ -98,7 +98,7 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <meta name="theme-color" content="#f08080" />
         <title>Omar Diab</title>
         <link
-          href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </Head>
