@@ -4,7 +4,7 @@ import RouterLink, { LinkProps as RouterLinkProps } from "next/link";
 import { css } from "@emotion/core";
 
 import { logger } from "src/utility/logger";
-import { palette } from "src/theme/palette";
+import { palette } from "src/styles/palette";
 
 export enum LinkAppearance {
   HYPERLINK = "HYPERLINK",

@@ -3,7 +3,7 @@ import { css } from "@emotion/core";
 
 import { Link, LinkAppearance } from "src/components/Link";
 import { logger } from "src/utility/logger";
-import { palette } from "src/theme/palette";
+import { palette } from "src/styles/palette";
 
 export enum ButtonTargetKind {
   LINK = "LINK",
@@ -147,7 +147,7 @@ export const Button = (
       }
 
       return (
-        <Link appearance={LinkAppearance.UNSTYLED} to={onClick.action}>
+        <Link appearance={LinkAppearance.UNSTYLED} href={onClick.action}>
           {linkContent}
         </Link>
       );
