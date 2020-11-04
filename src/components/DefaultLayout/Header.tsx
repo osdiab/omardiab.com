@@ -39,7 +39,7 @@ const highlightNameCss = css`
 
 export const Header = (): JSX.Element => (
   <header css={headerCss}>
-    <div css={avatarCss} />
+    <div css={avatarCss} role="img" aria-label="Portrait of Omar Diab" />
     <h1 css={bannerTitleCss}>
       I am <b css={highlightNameCss}>Omar Diab.</b>
     </h1>
