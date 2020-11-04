@@ -11,7 +11,7 @@ export enum ButtonTargetKind {
   SUBMIT = "SUBMIT",
 }
 
-export enum ButtonRole {
+export enum ButtonType {
   PRIMARY = "PRIMARY",
   SECONDARY = "SECONDARY",
   TEXT_ONLY = "TEXT_ONLY",
@@ -37,43 +37,43 @@ export interface ButtonProps {
   onClick: OnClick;
   size?: ButtonSize;
   disabled?: boolean;
-  role?: ButtonRole;
+  type?: ButtonType;
 }
 
 type StyledButtonProps = Pick<
   Required<ButtonProps>,
-  "size" | "disabled" | "role"
+  "size" | "disabled" | "type"
 >;
 
-function borderColor(params: { role: ButtonRole; focus: boolean }): string {
-  const { role, focus } = params;
-  switch (role) {
-    case ButtonRole.PRIMARY:
-    case ButtonRole.SECONDARY:
+function borderColor(params: { type: ButtonType; focus: boolean }): string {
+  const { type, focus } = params;
+  switch (type) {
+    case ButtonType.PRIMARY:
+    case ButtonType.SECONDARY:
       return focus ? palette.primaryHighlight : palette.primary;
-    case ButtonRole.TEXT_ONLY:
+    case ButtonType.TEXT_ONLY:
       return "transparent";
   }
 }
 
-function backgroundColor(params: { role: ButtonRole; focus: boolean }): string {
-  const { role, focus } = params;
-  switch (role) {
-    case ButtonRole.PRIMARY:
+function backgroundColor(params: { type: ButtonType; focus: boolean }): string {
+  const { type, focus } = params;
+  switch (type) {
+    case ButtonType.PRIMARY:
       return focus ? palette.primaryHighlight : palette.primary;
-    case ButtonRole.SECONDARY:
-    case ButtonRole.TEXT_ONLY:
+    case ButtonType.SECONDARY:
+    case ButtonType.TEXT_ONLY:
       return "transparent";
   }
 }
 
-function fontColor(params: { role: ButtonRole; focus: boolean }): string {
-  const { role, focus } = params;
-  switch (role) {
-    case ButtonRole.PRIMARY:
+function fontColor(params: { type: ButtonType; focus: boolean }): string {
+  const { type, focus } = params;
+  switch (type) {
+    case ButtonType.PRIMARY:
       return palette.whiteText;
-    case ButtonRole.SECONDARY:
-    case ButtonRole.TEXT_ONLY:
+    case ButtonType.SECONDARY:
+    case ButtonType.TEXT_ONLY:
       return focus ? palette.primaryHighlight : palette.primary;
   }
 }
@@ -134,10 +134,10 @@ export const Button = (
     onClick,
     size = ButtonSize.MEDIUM,
     disabled = false,
-    role = ButtonRole.PRIMARY,
+    type = ButtonType.PRIMARY,
     children,
   } = props;
-  const buttonCss = makeButtonCss({ size, role, disabled });
+  const buttonCss = makeButtonCss({ size, type, disabled });
 
   switch (onClick.kind) {
     case ButtonTargetKind.LINK: {

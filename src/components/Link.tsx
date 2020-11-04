@@ -1,6 +1,6 @@
 import isRelativeUrl from "is-relative-url";
 import * as React from "react";
-import RouterLink, { LinkProps as RouterLinkProps } from "next/link";
+import RouterLink from "next/link";
 import { css } from "@emotion/core";
 
 import { logger } from "src/utility/logger";
