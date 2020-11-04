@@ -1,12 +1,9 @@
 import { css, Global } from "@emotion/core";
-import dynamic from "next/dynamic";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Head from "next/head";
 import { globalCss } from "src/styles/global";
 import { text } from "src/styles/text";
-
-// don't SSR this to allow font to load after the page is displayed
-const Fonts = dynamic(() => import("src/utility/Fonts"), { ssr: false });
+import DeferredLink from "src/utility/DeferredLink";
 
 const pageContainerCss = css`
   min-height: 100vh;
@@ -103,7 +100,11 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <title>Omar Diab</title>
       </Head>
       <Global styles={globalCss} />
-      <Fonts />
+      <DeferredLink
+        href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+        rel="stylesheet"
+        preload
+      />
       <Component {...pageProps} />
     </div>
   );
