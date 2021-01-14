@@ -26,10 +26,15 @@ const avatarCss = css`
   display: flex;
   justify-content: center;
 
-  > img {
+  > picture {
     position: absolute;
     top: 0;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    > img {
+      height: 100%;
+    }
   }
 `;
 
@@ -45,7 +50,12 @@ const highlightNameCss = css`
 export const Header = (): JSX.Element => (
   <header css={headerCss}>
     <div css={avatarCss}>
-      <Img src={avatarImg} alt="Portrait of Omar Diab" />
+      <Img
+        src={avatarImg}
+        alt="Portrait of Omar Diab"
+        sizes={[140, 300]}
+        densities={[1, 2, 3, 4]}
+      />
     </div>
 
     <h1 css={bannerTitleCss}>
