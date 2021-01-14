@@ -13,11 +13,15 @@
     "lint:fix": "yarn prettier:src --write && yarn eslint:src --fix"
   },
   "dependencies": {
+    "@babel/core": "^7.12.10",
     "@emotion/core": "^10.1.1",
+    "file-loader": "^6.2.0",
+    "img-loader": "^3.0.2",
     "is-relative-url": "^3.0.0",
-    "next": "10.0.0",
+    "next": "^10.0.5",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.1.0",
