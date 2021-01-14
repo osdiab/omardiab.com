@@ -13,19 +13,14 @@ const headerCss = [
     align-items: center;
     margin-bottom: 0;
     border: 0;
+    align-items: stretch;
   `,
 ];
 const avatarCss = css`
+  flex: 1;
+  object-fit: cover;
   max-width: 140px;
   min-height: 140px;
-  flex: 1;
-  align-self: stretch;
-
-  background-image: url(${avatarImg});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-
   margin-right: 20px;
 `;
 
@@ -40,7 +35,7 @@ const highlightNameCss = css`
 
 export const Header = (): JSX.Element => (
   <header css={headerCss}>
-    <div css={avatarCss} role="img" aria-label="Portrait of Omar Diab" />
+    <img src={avatarImg} css={avatarCss} alt="Portrait of Omar Diab" />
 
     <h1 css={bannerTitleCss}>
       I am <b css={highlightNameCss}>Omar Diab.</b>
