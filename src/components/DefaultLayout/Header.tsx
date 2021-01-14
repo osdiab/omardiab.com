@@ -17,12 +17,20 @@ const headerCss = [
   `,
 ];
 const avatarCss = css`
+  position: relative;
   align-self: stretch;
-  flex: 1;
-  object-fit: cover;
-  max-width: 140px;
+  min-width: 140px;
   min-height: 140px;
   margin-right: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  > img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
 `;
 
 const bannerTitleCss = css`
@@ -36,7 +44,9 @@ const highlightNameCss = css`
 
 export const Header = (): JSX.Element => (
   <header css={headerCss}>
-    <Img src={avatarImg} css={avatarCss} alt="Portrait of Omar Diab" />
+    <div css={avatarCss}>
+      <Img src={avatarImg} alt="Portrait of Omar Diab" />
+    </div>
 
     <h1 css={bannerTitleCss}>
       I am <b css={highlightNameCss}>Omar Diab.</b>
