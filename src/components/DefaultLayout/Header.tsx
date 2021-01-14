@@ -14,10 +14,10 @@ const headerCss = [
     align-items: center;
     margin-bottom: 0;
     border: 0;
-    align-items: stretch;
   `,
 ];
 const avatarCss = css`
+  align-self: stretch;
   flex: 1;
   object-fit: cover;
   max-width: 140px;
