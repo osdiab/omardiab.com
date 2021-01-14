@@ -1,4 +1,5 @@
 import * as React from "react";
+import Img from "react-optimized-image";
 
 import avatarImg from "src/assets/avatar.jpg";
 import { pageSectionCss } from "src/styles/pageSection";
@@ -35,7 +36,7 @@ const highlightNameCss = css`
 
 export const Header = (): JSX.Element => (
   <header css={headerCss}>
-    <img src={avatarImg} css={avatarCss} alt="Portrait of Omar Diab" />
+    <Img src={avatarImg} css={avatarCss} alt="Portrait of Omar Diab" />
 
     <h1 css={bannerTitleCss}>
       I am <b css={highlightNameCss}>Omar Diab.</b>
