@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { pageSectionCss } from "src/styles/pageSection";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { Link } from "src/components/Link";
 
 const infoSectionCss = css`

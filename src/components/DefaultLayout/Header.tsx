@@ -2,7 +2,7 @@ import * as React from "react";
 
 import avatarImg from "src/assets/avatar.jpg";
 import { pageSectionCss } from "src/styles/pageSection";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { palette } from "src/styles/palette";
 
 const headerCss = [
@@ -28,6 +28,7 @@ const avatarCss = css`
 
   margin-right: 20px;
 `;
+
 const bannerTitleCss = css`
   margin: 0;
   flex: 1;
@@ -40,6 +41,7 @@ const highlightNameCss = css`
 export const Header = (): JSX.Element => (
   <header css={headerCss}>
     <div css={avatarCss} role="img" aria-label="Portrait of Omar Diab" />
+
     <h1 css={bannerTitleCss}>
       I am <b css={highlightNameCss}>Omar Diab.</b>
     </h1>

@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 import { styleReset } from "src/styles/global/styleReset";
 import { globalTextStyles } from "src/styles/global/text";

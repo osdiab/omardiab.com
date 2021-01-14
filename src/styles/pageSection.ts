@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 export const pageSectionCss = css`
   padding: 20px 60px;

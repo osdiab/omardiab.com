@@ -1,7 +1,7 @@
 import isRelativeUrl from "is-relative-url";
 import * as React from "react";
 import RouterLink from "next/link";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 import { logger } from "src/utility/logger";
 import { palette } from "src/styles/palette";

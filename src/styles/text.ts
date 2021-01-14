@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { palette } from "src/styles/palette";
 
 export const text = {

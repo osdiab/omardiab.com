@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { mediaQueries } from "src/styles/mediaQueries";
 
 const textBlockCss = css`

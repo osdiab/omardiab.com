@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import * as React from "react";
 import { DefaultLayout } from "src/components/DefaultLayout";
 import { pageSectionCss } from "src/styles/pageSection";
