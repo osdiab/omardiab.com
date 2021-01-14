@@ -3,6 +3,7 @@
     "jpoissonnier.vscode-styled-components",
     "dbaeumer.vscode-eslint",
     "stkb.rewrap",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "arcanis.vscode-zipfs"
   ]
 }
