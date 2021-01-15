@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import * as React from "react";
 import { DefaultLayout } from "src/components/DefaultLayout";
 import { pageSectionCss } from "src/styles/pageSection";
+import { NextPage } from "next";
 
 const bannerTitleCss = css`
   font-size: 2rem;
@@ -11,7 +12,8 @@ const bannerTitleCss = css`
   margin: auto;
   text-align: center;
 `;
-export default function HomePage(): JSX.Element {
+
+const HomePage: NextPage = () => {
   return (
     <DefaultLayout>
       <Head>
@@ -25,4 +27,6 @@ export default function HomePage(): JSX.Element {
       </main>
     </DefaultLayout>
   );
-}
+};
+
+export default HomePage;
