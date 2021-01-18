@@ -59,7 +59,7 @@ export const Header = (): JSX.Element => (
     </div>
 
     <h1 css={bannerTitleCss}>
-      I am <b css={highlightNameCss}>Omar Diab.</b>
+      I am <b css={highlightNameCss}>Omar Diab</b>
     </h1>
   </header>
 );

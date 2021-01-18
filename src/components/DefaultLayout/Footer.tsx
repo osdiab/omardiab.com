@@ -16,6 +16,9 @@ const contactSectionCss = [
   css`
     padding-bottom: 2rem;
     align-self: flex-start;
+    > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
   `,
 ];
 export const Footer = (): JSX.Element => (
