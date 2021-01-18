@@ -6,7 +6,8 @@ export const colors = {
   brighterOrange: "#ff7d50",
   paleOrange: "#f97e53",
   mediumGray: "#888888",
-  offBlack: "#2a2a2a"
+  darkGray: "#666666",
+  offBlack: "#2a2a2a",
 };
 
 export const palette = {
@@ -15,5 +16,6 @@ export const palette = {
   background: colors.offWhite,
   disabled: colors.mediumGray,
   bodyText: colors.offBlack,
-  whiteText: colors.offWhite
+  secondaryText: colors.darkGray,
+  whiteText: colors.offWhite,
 };
