@@ -1,29 +1,31 @@
-import isRelativeUrl from "is-relative-url";
 import * as React from "react";
-import RouterLink from "next/link";
+import RouterLink, { LinkProps as RouterLinkProps } from "next/link";
 import { css } from "@emotion/react";
+import externalLinkSvg from "src/assets/icons/external-link.svg";
 
 import { logger } from "src/utility/logger";
 import { palette } from "src/styles/palette";
+import { Svg } from "react-optimized-image";
+import { Url } from "url";
+import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
 
 export enum LinkAppearance {
   HYPERLINK = "HYPERLINK",
   UNSTYLED = "UNSTYLED",
 }
 
-interface BaseLinkProps {
-  href: string;
+export interface LinkProps extends React.PropsWithChildren<RouterLinkProps> {
   appearance?: LinkAppearance;
 }
-export type LinkProps = React.PropsWithChildren<BaseLinkProps>;
 
 const hyperlinkCss = css`
+  display: inline-block; // prevents wrapping unless necessary
   color: ${palette.primary};
-  font-weight: 700;
   transition: color 0.1s ease-in;
 
-  :hover {
-    color: ${palette.primary};
+  &:hover,
+  &:focus {
+    color: ${palette.primaryHighlight};
   }
 `;
 const unstyledLinkCss = css`
@@ -37,21 +39,35 @@ function logInvalidAppearance(appearance: never) {
   );
 }
 
+const externalLinkCss = css`
+  height: 0.75em;
+  margin-left: 0.25em;
+`;
+
 const AbsoluteLink = ({ href: href, appearance, children }: LinkProps) => {
-  const props = { href, children };
   switch (appearance) {
     default:
       logInvalidAppearance(appearance);
     // fallthrough
     case undefined: // fallthrough
     case LinkAppearance.HYPERLINK:
-      return <a css={hyperlinkCss} {...props} />;
+      return (
+        <a css={hyperlinkCss} href={href.toString()}>
+          {children}
+          <Svg css={externalLinkCss} src={externalLinkSvg} />
+        </a>
+      );
     case LinkAppearance.UNSTYLED:
-      return <a css={unstyledLinkCss} {...props} />;
+      return (
+        <a css={unstyledLinkCss} href={href.toString()}>
+          {children}
+        </a>
+      );
   }
 };
 
-const RelativeLink = ({ href, appearance, children }: LinkProps) => {
+const RelativeLink = ({ href: hrefUrl, appearance, children }: LinkProps) => {
+  const href = `${hrefUrl.pathname}${hrefUrl.search}${hrefUrl.hash}`;
   switch (appearance) {
     default:
       logInvalidAppearance(appearance);
@@ -72,11 +88,18 @@ const RelativeLink = ({ href, appearance, children }: LinkProps) => {
   }
 };
 
+function urlIsRelative(url: LinkProps["href"]): boolean {
+  if (typeof url === "string") {
+    return url.startsWith("/"); // for the purposes of this app, this works
+  }
+  return Boolean(url.host || url.hostname);
+}
+
 /**
  * A link to external content.
  */
 export const Link = (props: LinkProps): JSX.Element => {
-  return isRelativeUrl(props.href) ? (
+  return urlIsRelative(props.href) ? (
     <RelativeLink {...props} />
   ) : (
     <AbsoluteLink {...props} />
