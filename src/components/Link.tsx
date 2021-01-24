@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import RouterLink, { LinkProps as RouterLinkProps } from "next/link";
 import { css } from "@emotion/react";
 import externalLinkSvg from "src/assets/icons/external-link.svg";
@@ -6,8 +7,6 @@ import externalLinkSvg from "src/assets/icons/external-link.svg";
 import { logger } from "src/utility/logger";
 import { palette } from "src/styles/palette";
 import { Svg } from "react-optimized-image";
-import { Url } from "url";
-import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
 
 export enum LinkAppearance {
   HYPERLINK = "HYPERLINK",
@@ -67,7 +66,13 @@ const AbsoluteLink = ({ href: href, appearance, children }: LinkProps) => {
 };
 
 const RelativeLink = ({ href: hrefUrl, appearance, children }: LinkProps) => {
-  const href = `${hrefUrl.pathname}${hrefUrl.search}${hrefUrl.hash}`;
+  const router = useRouter();
+  const href =
+    typeof hrefUrl === "string"
+      ? hrefUrl
+      : `${hrefUrl.pathname || router.pathname}${hrefUrl.search}${
+          hrefUrl.hash
+        }`;
   switch (appearance) {
     default:
       logInvalidAppearance(appearance);
