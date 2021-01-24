@@ -129,14 +129,27 @@ const JOBS: JobListingProps[] = [
     companyUrl: "https://www.every.org",
     jobTitle: "Cofounder and Head of Engineering",
     timeAtJob: "2018-present",
-    description: <p>Meow</p>,
+    description: (
+      <>
+        <p>
+          Every.org is the easiest way to give to any nonprofit, and seeks to
+          make giving a central part of everyone&rsquo;s day to day lives.
+        </p>
+        <p>
+          Along with being a driving force in its product and design, Omar
+          trained his engineering team to become experts in the modern web
+          development stack. He ensures that Every.org products can rapidly
+          evolve, while remaining technically robust and easily understandable.
+        </p>
+      </>
+    ),
   },
   {
     companyName: "Clever",
     companyTagline:
       "The most widely used single sign‑on platform for K–12 education.",
     companyUrl: "https://www.clever.com",
-    jobTitle: "Full-stack Software Engineer",
+    jobTitle: "Full-Stack Software Engineer",
     timeAtJob: "2013-2016",
     description: (
       <>
@@ -150,8 +163,10 @@ const JOBS: JobListingProps[] = [
           Badges lets them log in with QR codes instead.
         </p>
         <p>
-          He also evangelized modern web-development practices, helping Clever
-          cement its reputation as a leader in education technology.
+          Focusing on empowering students and teachers, he built out core
+          functionality, analyzed and maintained server capacity, and
+          evangelized modern web-development practices, helping Clever cement
+          its reputation as a leader in education technology.
         </p>
       </>
     ),
@@ -159,7 +174,7 @@ const JOBS: JobListingProps[] = [
   {
     companyName: "Backplane",
     companyTagline: "Niche social networks with purpose.",
-    jobTitle: "Full-stack Software Engineering Intern",
+    jobTitle: "Backend Software Engineering Intern",
     timeAtJob: "2011-2013",
     description: (
       <p>
