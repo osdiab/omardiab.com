@@ -70,9 +70,9 @@ const RelativeLink = ({ href: hrefUrl, appearance, children }: LinkProps) => {
   const href =
     typeof hrefUrl === "string"
       ? hrefUrl
-      : `${hrefUrl.pathname || router.pathname}${hrefUrl.search}${
-          hrefUrl.hash
-        }`;
+      : [hrefUrl.pathname || router.pathname, hrefUrl.search, hrefUrl.hash]
+          .filter(Boolean)
+          .join("");
   switch (appearance) {
     default:
       logInvalidAppearance(appearance);
