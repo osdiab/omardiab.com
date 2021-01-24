@@ -6,6 +6,7 @@ import { pageSectionCss } from "src/styles/pageSection";
 import { NextPage } from "next";
 import { palette } from "src/styles/palette";
 import { Link, LinkProps } from "src/components/Link";
+import { compositionTextCss } from "src/styles/global/text";
 
 const bannerTitleCss = css`
   font-size: 2rem;
@@ -107,7 +108,7 @@ function JobListing(props: JobListingProps) {
         </hgroup>
         <JobMetadata {...props} />
       </header>
-      <main>{props.description}</main>
+      <main css={compositionTextCss}>{props.description}</main>
     </React.Fragment>
   );
 }
