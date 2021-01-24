@@ -4,6 +4,6 @@ export const mediaQueries = {
     laptopSmall: "1024px",
     tablet: "768px",
     phoneLarge: "425px",
-    phoneMedium: "375px"
-  }
+    phoneMedium: "375px",
+  },
 };
