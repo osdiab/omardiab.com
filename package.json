@@ -11,7 +11,7 @@
     "prettier:src": "prettier \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint": "yarn prettier:src --check && yarn eslint:src",
     "lint:fix": "yarn prettier:src --write && yarn eslint:src --fix",
-    "test": "yarn lint && yarn build"
+    "test": "yarn lint && tsc"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
