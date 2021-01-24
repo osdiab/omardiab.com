@@ -7,6 +7,7 @@ import externalLinkSvg from "src/assets/icons/external-link.svg";
 import { logger } from "src/utility/logger";
 import { palette } from "src/styles/palette";
 import { Svg } from "react-optimized-image";
+import { format } from "url";
 
 export enum LinkAppearance {
   HYPERLINK = "HYPERLINK",
@@ -43,7 +44,9 @@ const externalLinkCss = css`
   margin-left: 0.25em;
 `;
 
-const AbsoluteLink = ({ href: href, appearance, children }: LinkProps) => {
+const AbsoluteLink = ({ href, appearance, children }: LinkProps) => {
+  const hrefStr = format(href);
+
   switch (appearance) {
     default:
       logInvalidAppearance(appearance);
@@ -51,14 +54,14 @@ const AbsoluteLink = ({ href: href, appearance, children }: LinkProps) => {
     case undefined: // fallthrough
     case LinkAppearance.HYPERLINK:
       return (
-        <a css={hyperlinkCss} href={href.toString()}>
+        <a css={hyperlinkCss} href={hrefStr}>
           {children}
           <Svg css={externalLinkCss} src={externalLinkSvg} />
         </a>
       );
     case LinkAppearance.UNSTYLED:
       return (
-        <a css={unstyledLinkCss} href={href.toString()}>
+        <a css={unstyledLinkCss} href={hrefStr}>
           {children}
         </a>
       );
