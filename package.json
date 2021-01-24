@@ -10,7 +10,8 @@
     "eslint:src": "yarn eslint ./src",
     "prettier:src": "prettier \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint": "yarn prettier:src --check && yarn eslint:src",
-    "lint:fix": "yarn prettier:src --write && yarn eslint:src --fix"
+    "lint:fix": "yarn prettier:src --write && yarn eslint:src --fix",
+    "test": "yarn lint && yarn build"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
