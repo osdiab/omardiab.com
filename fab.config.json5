@@ -1,13 +1,13 @@
 // For more information, see https://fab.dev/kb/configuration
 {
   plugins: {
-    '@fab/input-nextjs': {
-      dir: '.next'
+    "@fab/input-nextjs": {
+      dir: ".next",
     },
-    '@fab/plugin-render-html': {
-      fallback: false
+    "@fab/plugin-render-html": {
+      fallback: false,
     },
-    '@fab/plugin-rewire-assets': {}
+    "@fab/plugin-rewire-assets": {},
     // This section defines your build & runtime toolchains. See https://fab.dev/kb/plugins
   },
   settings: {
@@ -18,13 +18,21 @@
       // allowing for many production-specific optimisations. See https://fab.dev/kb/production
       // Example setting:
       // API_URL: 'https://api.example.com/graphql'
-    }
+    },
   },
   deploy: {
+    "cf-workers": {
+      account_id: "@CF_WORKERS_ACCOUNT_ID",
+      api_token: "@CF_WORKERS_API_TOKEN",
+      workers_dev: false,
+      script_name: "omardiab-com-nextjs-fab",
+      zone_id: "@FAB_DEV_ZONE_ID",
+      route: "https://www.omardiab.com/*",
+    },
     // For manual (command-line) deploys, add configuration here.
     // • See https://fab.dev/guides/deploying for more info.
     // However, we recommend automatic deploys (triggered by git push)
     // using a service such as Linc (https://linc.sh)
     // • See https://fab.dev/kb/automatic-deploys for setup instructions.
-  }
+  },
 }
