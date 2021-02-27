@@ -12,6 +12,7 @@ export const globalCss = [
     body {
       /* page always at least full height*/
       min-height: 100vh;
+      overflow-x: hidden;
 
       /* default font everywhere */
       font-family: ${text.fontFamily};
