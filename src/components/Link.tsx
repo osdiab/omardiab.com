@@ -2,11 +2,10 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import RouterLink, { LinkProps as RouterLinkProps } from "next/link";
 import { css } from "@emotion/react";
-import externalLinkSvg from "src/assets/icons/external-link.svg";
+import ExternalLinkSvg from "src/assets/icons/external-link.svg";
 
 import { logger } from "src/utility/logger";
 import { palette } from "src/styles/palette";
-import { Svg } from "react-optimized-image";
 import { format } from "url";
 
 export enum LinkAppearance {
@@ -56,7 +55,7 @@ const AbsoluteLink = ({ href, appearance, children }: LinkProps) => {
       return (
         <a css={hyperlinkCss} href={hrefStr}>
           {children}
-          <Svg css={externalLinkCss} src={externalLinkSvg} />
+          <ExternalLinkSvg css={externalLinkCss} />
         </a>
       );
     case LinkAppearance.UNSTYLED:

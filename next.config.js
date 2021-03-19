@@ -1,16 +1,27 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const { merge } = require("webpack-merge");
 
-const withPlugins = require("next-compose-plugins");
-const optimizedImages = require("next-optimized-images");
-
-module.exports = withPlugins(
-  [
-    [
-      optimizedImages,
-      {
-        /* config for next-optimized-images */
+module.exports = {
+  target: "serverless",
+  webpack: (config) =>
+    merge(config, {
+      module: {
+        rules: [
+          {
+            test: /\.(png|jpg|gif)$/i,
+            use: [
+              {
+                loader: "file-loader",
+                options: {
+                  // if you don't use ../ it will put it inside ".next" folder by default
+                  outputPath: "../public/assets/",
+                  publicPath: "/assets/",
+                },
+              },
+            ],
+          },
+          { test: /\.svg$/, use: ["@svgr/webpack"] },
+        ],
       },
-    ],
-  ],
-  { target: "serverless" }
-);
+    }),
+};

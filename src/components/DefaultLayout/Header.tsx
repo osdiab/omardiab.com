@@ -1,5 +1,5 @@
 import * as React from "react";
-import Img from "react-optimized-image";
+import Image from "next/image";
 
 import avatarImg from "src/assets/avatar.jpg";
 import { pageSectionCss } from "src/styles/pageSection";
@@ -50,11 +50,11 @@ const highlightNameCss = css`
 export const Header = (): JSX.Element => (
   <header css={headerCss}>
     <div css={avatarCss}>
-      <Img
+      <Image
         src={avatarImg}
         alt="Portrait of Omar Diab"
-        sizes={[140, 300]}
-        densities={[1, 2, 3, 4]}
+        width={300}
+        height={300}
       />
     </div>
 
