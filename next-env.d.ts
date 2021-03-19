@@ -1,6 +1,6 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
-/// <reference types="optimized-images-loader" />
+/// <reference types="@emotion/react/types/css-prop" />
 
 declare module "*.svg" {
   const ReactComponent: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
