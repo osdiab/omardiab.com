@@ -5,6 +5,7 @@ sentryInit();
 
 const Hello: NextApiHandler = (req, res) => {
   res.statusCode = 200;
+  console.log(req.body);
   res.json({ name: "John Doe" });
 };
 
