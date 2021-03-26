@@ -4,13 +4,16 @@ import Head from "next/head";
 import { globalCss } from "src/styles/global";
 import { text } from "src/styles/text";
 import DeferredLink from "src/utility/DeferredLink";
+import { init as sentryInit } from "src/utility/sentry";
+
+sentryInit();
 
 const pageContainerCss = css`
   min-height: 100vh;
   font-size: ${text.size.paragraph};
 `;
 
-const MyApp: AppComponent = ({ Component, pageProps }) => (
+const MyApp: AppComponent = ({ Component, pageProps, err }) => (
   <div css={pageContainerCss}>
     <Head>
       <meta charSet="utf-8" />
@@ -104,7 +107,7 @@ const MyApp: AppComponent = ({ Component, pageProps }) => (
       rel="stylesheet"
       preload
     />
-    <Component {...pageProps} />
+    <Component {...pageProps} err={err} />
   </div>
 );
 
