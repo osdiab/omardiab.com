@@ -27,9 +27,9 @@ export const DefaultLayout = ({
         {children}
       </main>
       <Footer
-        css={css`
-          margin-bottom: 200px;
-        `}
+      // css={css`
+      //   margin-bottom: 200px;
+      // `}
       />
     </>
   );
