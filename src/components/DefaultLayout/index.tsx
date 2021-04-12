@@ -15,7 +15,7 @@ export const DefaultLayout = ({
   return (
     <>
       <Header />
-      <Navigation />
+      {/* <Navigation /> */}
       <main
         css={[
           css`
