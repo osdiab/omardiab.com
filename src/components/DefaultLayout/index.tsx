@@ -2,6 +2,7 @@ import { css, Interpolation, Theme } from "@emotion/react";
 import * as React from "react";
 import { Footer } from "src/components/DefaultLayout/Footer";
 import { Header } from "src/components/DefaultLayout/Header";
+import { Navigation } from "src/components/DefaultLayout/Navigation";
 
 interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ export const DefaultLayout = ({
   return (
     <>
       <Header />
+      <Navigation />
       <main
         css={[
           css`
@@ -24,7 +26,11 @@ export const DefaultLayout = ({
       >
         {children}
       </main>
-      <Footer />
+      <Footer
+        css={css`
+          margin-bottom: 200px;
+        `}
+      />
     </>
   );
 };
