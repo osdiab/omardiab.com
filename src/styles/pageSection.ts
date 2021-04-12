@@ -1,11 +1,16 @@
 import { css } from "@emotion/react";
+import { cssForMediaSize, MediaSize } from "src/styles/mediaQueries";
+import { spacing } from "src/styles/spacing";
 
 export const pageSectionCss = css`
-  padding: 20px 60px;
+  padding: ${spacing.l} ${spacing.xxl};
   max-width: 1000px;
   margin: 0 auto;
 
-  @media (max-width: 500px) {
-    padding: 20px;
-  }
+  ${cssForMediaSize({
+    max: MediaSize.PHONE_LARGE,
+    css: css`
+      padding: ${spacing.m};
+    `,
+  })}
 `;

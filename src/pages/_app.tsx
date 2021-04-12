@@ -2,16 +2,18 @@ import { css, Global } from "@emotion/react";
 import { AppComponent } from "next/dist/next-server/lib/router/router";
 import Head from "next/head";
 import { globalCss } from "src/styles/global";
-import { text } from "src/styles/text";
+import { textSizeCss } from "src/styles/text";
 import DeferredLink from "src/utility/DeferredLink";
 import { init as sentryInit } from "src/utility/sentry";
 
 sentryInit();
 
-const pageContainerCss = css`
-  min-height: 100vh;
-  font-size: ${text.size.paragraph};
-`;
+const pageContainerCss = [
+  css`
+    min-height: 100vh;
+  `,
+  textSizeCss.s,
+];
 
 const MyApp: AppComponent = ({ Component, pageProps, err }) => (
   <div css={pageContainerCss}>

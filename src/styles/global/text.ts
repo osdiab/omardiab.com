@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
-import { mediaQueries } from "src/styles/mediaQueries";
+import { cssForMediaSize, MediaSize } from "src/styles/mediaQueries";
 import { palette } from "src/styles/palette";
+import { verticalStackCss } from "src/styles/spacing";
+import { textSizeCss } from "src/styles/text";
 
 const boldCss = css`
   font-weight: 700;
@@ -12,28 +14,19 @@ export const globalTextStyles = css`
   h4,
   h5,
   h6 {
-    font-size: 1.25rem;
-    line-height: 1.5;
+    ${textSizeCss.s}
   }
 
   h1 {
-    font-size: 5rem;
-    @media (max-width: ${mediaQueries.sizes.phoneLarge}) {
-      font-size: 3.5rem;
-    }
-
+    ${textSizeCss.xl};
     ${boldCss};
+    ${cssForMediaSize({ max: MediaSize.PHONE_LARGE, css: textSizeCss.l })}
   }
 
   h2 {
-    font-size: 1.5 rem;
+    ${textSizeCss.m};
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-  }
-
-  h1,
-  h2 {
-    line-height: 1.25;
   }
 
   h3 {
@@ -48,15 +41,5 @@ export const globalTextStyles = css`
 `;
 
 export const compositionTextCss = css`
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    &:not(:last-child) {
-      margin-bottom: 1.2rem;
-    }
-  }
+  ${verticalStackCss.m};
 `;

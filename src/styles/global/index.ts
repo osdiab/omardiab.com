@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { styleReset } from "src/styles/global/styleReset";
 import { globalTextStyles } from "src/styles/global/text";
 import { palette } from "src/styles/palette";
-import { text } from "src/styles/text";
+import { defaultFontFamily } from "src/styles/text";
 
 export const globalCss = [
   styleReset,
@@ -15,7 +15,7 @@ export const globalCss = [
       overflow-x: hidden;
 
       /* default font everywhere */
-      font-family: ${text.fontFamily};
+      font-family: ${defaultFontFamily};
 
       /* base colors in page */
       color: ${palette.bodyText};

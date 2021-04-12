@@ -188,6 +188,9 @@ const JOBS: JobListingProps[] = [
 ];
 
 const HomePage: NextPage = () => {
+  if (Math.random() > 0) {
+    throw new Error("tricked ya!");
+  }
   return (
     <DefaultLayout mainCss={mainCss}>
       <Head>
