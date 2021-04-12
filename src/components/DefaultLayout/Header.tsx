@@ -5,6 +5,7 @@ import avatarImg from "src/assets/avatar.jpg";
 import { pageSectionCss } from "src/styles/pageSection";
 import { css } from "@emotion/react";
 import { palette } from "src/styles/palette";
+import { textSizeCss } from "src/styles/text";
 
 const headerCss = [
   pageSectionCss,
@@ -26,22 +27,19 @@ const avatarCss = css`
   display: flex;
   justify-content: center;
 
-  > picture {
-    position: absolute;
-    top: 0;
+  img {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    > img {
-      height: 100%;
-    }
+    width: auto;
   }
 `;
 
-const bannerTitleCss = css`
-  margin: 0;
-  flex: 1;
-`;
+const bannerTitleCss = [
+  css`
+    margin: 0;
+    flex: 1;
+  `,
+  textSizeCss.xxl,
+];
 const highlightNameCss = css`
   color: ${palette.primary};
   display: inline-block;
@@ -53,8 +51,8 @@ export const Header = (): JSX.Element => (
       <Image
         src={avatarImg}
         alt="Portrait of Omar Diab"
-        width={300}
-        height={300}
+        layout="fill"
+        objectFit="contain"
       />
     </div>
 

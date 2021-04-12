@@ -7,14 +7,16 @@ import { NextPage } from "next";
 import { palette } from "src/styles/palette";
 import { Link, LinkProps } from "src/components/Link";
 import { compositionTextCss } from "src/styles/global/text";
+import { textSizeCss } from "src/styles/text";
 
-const bannerTitleCss = css`
-  font-size: 2rem;
-  font-weight: 700;
-  max-width: 80%;
-  margin: auto;
-  text-align: center;
-`;
+const bannerTitleCss = [
+  textSizeCss.xl,
+  css`
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+  `,
+];
 
 const workHistorySectionCss = css`
   > *:not(:last-child) {
