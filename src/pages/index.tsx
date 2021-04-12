@@ -200,7 +200,7 @@ const HomePage: NextPage = () => (
         products, from start to finish.
       </p>
     </section>
-    <section css={workHistorySectionCss}>
+    <section id="workHistory" css={workHistorySectionCss}>
       <h2>Work history</h2>
       <ul>
         {JOBS.map((job, index) => (
