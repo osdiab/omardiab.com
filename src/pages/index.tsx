@@ -187,33 +187,28 @@ const JOBS: JobListingProps[] = [
   },
 ];
 
-const HomePage: NextPage = () => {
-  if (Math.random() > 0) {
-    throw new Error("tricked ya!");
-  }
-  return (
-    <DefaultLayout mainCss={mainCss}>
-      <Head>
-        <title>Omar Diab</title>
-      </Head>
-      <section>
-        <p css={bannerTitleCss}>
-          I design and implement simple, powerful, and easily maintainable
-          products, from start to finish.
-        </p>
-      </section>
-      <section css={workHistorySectionCss}>
-        <h2>Work history</h2>
-        <ul>
-          {JOBS.map((job, index) => (
-            <li key={index}>
-              <JobListing {...job} />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </DefaultLayout>
-  );
-};
+const HomePage: NextPage = () => (
+  <DefaultLayout mainCss={mainCss}>
+    <Head>
+      <title>Omar Diab</title>
+    </Head>
+    <section>
+      <p css={bannerTitleCss}>
+        I design and implement simple, powerful, and easily maintainable
+        products, from start to finish.
+      </p>
+    </section>
+    <section css={workHistorySectionCss}>
+      <h2>Work history</h2>
+      <ul>
+        {JOBS.map((job, index) => (
+          <li key={index}>
+            <JobListing {...job} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  </DefaultLayout>
+);
 
 export default HomePage;
