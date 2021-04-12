@@ -21,8 +21,8 @@ const contactSectionCss = [
     }
   `,
 ];
-export const Footer = (): JSX.Element => (
-  <footer>
+export const Footer = (props: JSX.IntrinsicElements["footer"]): JSX.Element => (
+  <footer {...props}>
     <section css={contactSectionCss} id="contact">
       <h2>Get in touch</h2>
       <p>
