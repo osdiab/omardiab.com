@@ -36,7 +36,6 @@ const mediaSizeNextLargest: {
       ][0]
   ),
 };
-console.log({ minWidthsAsc, mediaSizeNextLargest });
 
 /**
  * Specifies screen sizes that code should be applicable to
