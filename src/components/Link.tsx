@@ -21,6 +21,7 @@ const hyperlinkCss = css`
   display: inline-block; // prevents wrapping unless necessary
   color: ${palette.primary};
   transition: color 0.1s ease-in;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -67,7 +68,11 @@ const AbsoluteLink = ({ href, appearance, children }: LinkProps) => {
   }
 };
 
-const RelativeLink = ({ href: hrefUrl, appearance, children }: LinkProps) => {
+const RelativeLink = ({
+  href: hrefUrl,
+  appearance = LinkAppearance.HYPERLINK,
+  children,
+}: LinkProps) => {
   const router = useRouter();
   const href =
     typeof hrefUrl === "string"
@@ -79,7 +84,6 @@ const RelativeLink = ({ href: hrefUrl, appearance, children }: LinkProps) => {
     default:
       logInvalidAppearance(appearance);
     // fallthrough
-    case undefined: // fallthrough
     case LinkAppearance.HYPERLINK:
       return (
         <RouterLink href={href}>
