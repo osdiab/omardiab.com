@@ -13,8 +13,6 @@ const bannerTitleCss = [
   textSizeCss.xl,
   css`
     max-width: 80%;
-    margin: auto;
-    text-align: center;
   `,
 ];
 
@@ -196,8 +194,8 @@ const HomePage: NextPage = () => (
     </Head>
     <section>
       <p css={bannerTitleCss}>
-        I design and implement simple, powerful, and easily maintainable
-        products, from start to finish.
+        I design and implement simple, powerful, and maintainable products, from
+        start to finish.
       </p>
     </section>
     <section id="workHistory" css={workHistorySectionCss}>
