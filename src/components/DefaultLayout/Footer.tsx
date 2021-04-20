@@ -27,7 +27,7 @@ export const Footer = (props: JSX.IntrinsicElements["footer"]): JSX.Element => (
       <h2>Get in touch</h2>
       <p>
         Feel free to{" "}
-        <Link href="mailto://hello@omardiab.com">shoot me an email</Link>
+        <Link href="mailto:hello@omardiab.com">shoot me an email</Link>
         {" or "}
         <Link href="https://linkedin.com/in/osdiab">check my LinkedIn</Link>.
       </p>
