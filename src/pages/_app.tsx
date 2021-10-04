@@ -104,11 +104,6 @@ const MyApp: AppComponent = ({ Component, pageProps, err }) => (
       <title>Omar Diab</title>
     </Head>
     <Global styles={globalCss} />
-    <DeferredLink
-      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
-      rel="stylesheet"
-      preload
-    />
     <Component {...pageProps} err={err} />
   </div>
 );

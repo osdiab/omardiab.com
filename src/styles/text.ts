@@ -53,7 +53,8 @@ export const textSizeCss = mapValues(
   `
 );
 
-export const defaultFontFamily = "'Libre Franklin', sans-serif";
+export const defaultFontFamily =
+  "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif; ";
 
 export const emphasisCss = css`
   font-weight: 700;
