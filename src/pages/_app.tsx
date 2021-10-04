@@ -3,7 +3,6 @@ import { AppComponent } from "next/dist/next-server/lib/router/router";
 import Head from "next/head";
 import { globalCss } from "src/styles/global";
 import { textSizeCss } from "src/styles/text";
-import DeferredLink from "src/utility/DeferredLink";
 import { init as sentryInit } from "src/utility/sentry";
 
 sentryInit();
