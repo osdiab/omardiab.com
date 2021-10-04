@@ -1,4 +1,5 @@
-import { css, SerializedStyles } from "@emotion/react";
+import { css } from "@emotion/react";
+import { CSSInterpolation } from "@emotion/serialize";
 import { mapValues } from "src/utility/object";
 
 /**
@@ -44,7 +45,7 @@ export const spacing = Object.fromEntries(
  * // ^^ these list items will be side by side with spacing.m space between them
  */
 export const horizontalStackCss: {
-  [key in keyof typeof rawSpacing]: SerializedStyles;
+  [key in keyof typeof rawSpacing]: CSSInterpolation;
 } = mapValues(
   rawSpacing,
   (numPx) => css`
@@ -93,7 +94,7 @@ export const horizontalStackCss: {
  * // in the ul are spaced by spacing.l
  */
 export const verticalStackCss: {
-  [key in keyof typeof rawSpacing]: SerializedStyles;
+  [key in keyof typeof rawSpacing]: CSSInterpolation;
 } = mapValues(
   rawSpacing,
   (numPx) => css`
@@ -104,6 +105,22 @@ export const verticalStackCss: {
       &:not(:last-child) {
         margin-bottom: ${numPx}px;
       }
+    }
+  `
+);
+
+export const wrappingHorizontalStackCss: Record<
+  keyof typeof rawSpacing,
+  CSSInterpolation
+> = mapValues(
+  rawSpacing,
+  (numberPx) => css`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: calc(-${numberPx}px / 2);
+    > * {
+      margin: calc(${numberPx}px / 2);
     }
   `
 );

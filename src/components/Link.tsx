@@ -22,6 +22,7 @@ const hyperlinkCss = css`
   color: ${palette.primary};
   transition: color 0.1s ease-in;
   cursor: pointer;
+  font-weight: 500;
 
   &:hover,
   &:focus {

@@ -1,4 +1,5 @@
-import { css, SerializedStyles } from "@emotion/react";
+import { css } from "@emotion/react";
+import { CSSInterpolation } from "@emotion/serialize";
 import { AtLeastOneKeyPresent, mapValues, omitKeys } from "src/utility/object";
 
 export enum MediaSize {
@@ -65,9 +66,9 @@ function maxWidthForMediaSize(
  */
 export function cssForMediaSize(
   props: {
-    css: SerializedStyles | SerializedStyles[];
+    css: CSSInterpolation;
   } & MediaQueryConstraint
-): SerializedStyles {
+): CSSInterpolation {
   const minBound = props.min
     ? `min-width: ${mediaSizeMinWidths[props.min]}px`
     : undefined;

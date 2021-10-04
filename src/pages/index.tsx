@@ -8,6 +8,7 @@ import { palette } from "src/styles/palette";
 import { Link, LinkProps } from "src/components/Link";
 import { compositionTextCss } from "src/styles/global/text";
 import { textSizeCss } from "src/styles/text";
+import { spacing, wrappingHorizontalStackCss } from "src/styles/spacing";
 
 const bannerTitleCss = [
   textSizeCss.xl,
@@ -21,14 +22,18 @@ const workHistorySectionCss = css`
     margin-bottom: 2rem;
   }
   > ul {
-    max-width: 800px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    justify-items: center;
+    ${wrappingHorizontalStackCss.xxxl};
+    max-width: 1000px;
+    justify-content: center;
+    align-items: start;
     list-style-type: none;
-    margin: -24px;
     > li {
-      margin: 24px;
+      flex-basis: calc(50% - ${spacing.xxxl});
+      min-width: 250px;
+      width: 100%;
+      max-width: 550px;
+      flex-shrink: 0;
+      flex-grow: 1;
 
       > * {
         display: block;

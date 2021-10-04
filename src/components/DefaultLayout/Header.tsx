@@ -20,7 +20,7 @@ const headerCss = [
 const avatarCss = css`
   position: relative;
   align-self: stretch;
-  min-width: 140px;
+  min-width: 100px;
   min-height: 140px;
   margin-right: 20px;
   overflow: hidden;
@@ -35,6 +35,7 @@ const avatarCss = css`
 
 const bannerTitleCss = [
   css`
+    font-weight: 700;
     margin: 0;
     flex: 1;
   `,
@@ -51,13 +52,14 @@ export const Header = (): JSX.Element => (
       <Image
         src={avatarImg}
         alt="Portrait of Omar Diab"
-        layout="fill"
-        objectFit="contain"
+        width={150}
+        height={150}
+        objectFit="cover"
       />
     </div>
 
     <h1 css={bannerTitleCss}>
-      I am <b css={highlightNameCss}>Omar Diab</b>
+      Hi, I&rsquo;m <b css={highlightNameCss}>Omar Diab</b>
     </h1>
   </header>
 );

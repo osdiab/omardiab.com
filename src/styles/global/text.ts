@@ -5,7 +5,7 @@ import { verticalStackCss } from "src/styles/spacing";
 import { textSizeCss } from "src/styles/text";
 
 const boldCss = css`
-  font-weight: 700;
+  font-weight: 500;
 `;
 
 export const globalTextStyles = css`
