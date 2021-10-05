@@ -31,7 +31,7 @@ const workHistorySectionCss = css`
       flex-basis: calc(50% - ${spacing.xxxl});
       min-width: 250px;
       width: 100%;
-      max-width: 550px;
+      max-width: 450px;
       flex-shrink: 0;
       flex-grow: 1;
 
