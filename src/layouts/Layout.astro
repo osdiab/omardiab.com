@@ -1,0 +1,76 @@
+---
+import "../styles/reset.scss";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <section id="contact" class="page-section">
+        <h2>Get in touch</h2>
+        <p>
+          Feel free to{" "}
+          <a href="mailto:hello@omardiab.com">shoot me an email</a>
+          {" or "}
+          <a href="https://linkedin.com/in/osdiab">check my LinkedIn</a>.
+        </p>
+      </section>
+      <section id="fork-github" class="page-section">
+        <p>
+          Like this site? Feel free to{" "}
+          <a href="https://github.com/osdiab/omardiab.com">
+            fork it on Github
+          </a>{" "}
+          and make it your own.
+        </p>
+        <p>Omar Diab, {new Date().getFullYear()}</p>
+      </section>
+    </footer>
+  </body>
+
+  <style is:global>
+    .page-section {
+      padding: 16px 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <style lang="scss">
+    footer {
+      display: flex;
+      flex-direction: column;
+      #contact {
+        padding-bottom: 2rem;
+        align-self: flex-start;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      #fork-github {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+      }
+    }
+  </style>
+</html>

@@ -1,0 +1,87 @@
+---
+import JobListing from "./JobListing.astro";
+---
+
+<ul>
+  <li>
+    <JobListing
+      companyName="Every.org"
+      companyTagline="Donate to any charity and share your learnings to advance good."
+      companyUrl="https://www.every.org"
+      jobTitle="Cofounder and Head of Engineering"
+      timeAtJob="2018-present"
+    >
+      <p>
+        Every.org is the easiest way to give to any nonprofit, and seeks to make
+        giving a central part of everyone&rsquo;s day to day lives.
+      </p>
+      <p>
+        Along with being a driving force in its product and design, Omar trained
+        his engineering team to become experts in the modern web development
+        stack. He ensures that Every.org products can rapidly evolve, while
+        remaining technically robust and easily understandable.
+      </p>
+    </JobListing>
+  </li>
+  <li>
+    <JobListing
+      companyName="Clever"
+      companyTagline="The most widely used single sign‑on platform for K–12 education."
+      companyUrl="https://www.clever.com"
+      jobTitle="Full-Stack Software Engineer"
+      timeAtJob="2013-2016"
+    >
+      <p>
+        <b>
+          Omar co-implemented{" "}
+          <a href="https://clever.com/products/badges">Clever Badges</a>
+        </b>
+        : the simplest way for young students to log into educational services. Young
+        children have trouble remembering passwords, so Clever Badges lets them log
+        in with QR codes instead.
+      </p>
+      <p>
+        Focusing on empowering students and teachers, he built out core
+        functionality, analyzed and maintained server capacity, and evangelized
+        modern web-development practices, helping Clever cement its reputation
+        as a leader in education technology.
+      </p>
+    </JobListing>
+  </li>
+  <li>
+    <JobListing
+      companyName="Backplane"
+      companyTagline="Niche social networks with purpose."
+      jobTitle="Backend Software Engineering Intern"
+      timeAtJob="2011-2013"
+    >
+      <p>
+        As an early backend engineer Omar helped build the technical
+        infrastructure for hundreds of thousands of fans to connect with Lady
+        Gaga on her social network Little Monsters.
+      </p>
+    </JobListing>
+  </li>
+</ul>
+
+<style lang="scss">
+  ul {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+
+    justify-content: center;
+    align-items: start;
+    list-style-type: none;
+    > li {
+      flex-basis: calc(50% - 32px);
+      min-width: 250px;
+      width: 100%;
+      max-width: 450px;
+      flex-shrink: 0;
+      flex-grow: 1;
+      article {
+      }
+    }
+  }
+</style>

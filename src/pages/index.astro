@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import JobListings from "../components/JobListings.astro";
+---
+
+<Layout title="Omar Diab">
+  <header class="page-section">
+    I design and implement simple, powerful, and maintainable products, from
+    start to finish.
+  </header>
+  <section id="workHistory" class="page-section">
+    <h2>Work history</h2>
+    <JobListings />
+  </section>
+</Layout>
+
+<style lang="scss">
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #workHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  header {
+    font-size: 2rem;
+    max-width: 80%;
+  }
+</style>
