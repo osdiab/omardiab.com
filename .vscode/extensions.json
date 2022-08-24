@@ -1,9 +1,8 @@
 {
   "recommendations": [
-    "jpoissonnier.vscode-styled-components",
+    "astro-build.astro-vscode",
     "dbaeumer.vscode-eslint",
     "stkb.rewrap",
-    "esbenp.prettier-vscode",
-    "arcanis.vscode-zipfs"
+    "esbenp.prettier-vscode"
   ]
 }
