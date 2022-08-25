@@ -31,7 +31,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "astro"
   ],
   "rewrap.wrappingColumn": 80,
   "rewrap.doubleSentenceSpacing": true,

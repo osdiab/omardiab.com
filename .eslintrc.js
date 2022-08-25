@@ -1,19 +1,18 @@
+const eslintExtends = [
+  "eslint:recommended",
+  "plugin:@typescript-eslint/recommended",
+  "plugin:astro/recommended",
+  "plugin:jsx-a11y/strict",
+  // Excludes ESLint's rules that conflict with prettier
+  "prettier",
+];
 module.exports = {
   env: {
     browser: true,
     es2021: true,
     node: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:astro/recommended",
-    "plugin:jsx-a11y/strict",
-    // Excludes ESLint's rules that conflict with prettier
-    "prettier",
-  ],
+  extends: eslintExtends,
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -24,8 +23,6 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "unused-imports", "jsx-a11y"],
   rules: {
-    "react/react-in-jsx-scope": "off", // not necessary anymore
-    "react/prop-types": "off", // typescript handles types already
     "@typescript-eslint/consistent-type-definitions": ["warn", "interface"], // interfaces more performant
     // -- eslint plugin unused import start
     "@typescript-eslint/no-unused-vars": "off",
@@ -54,6 +51,18 @@ module.exports = {
       rules: {
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"
+      },
+    },
+    {
+      files: ["*.ts", "*.tsx"],
+      extends: [
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        ...eslintExtends,
+      ],
+      rules: {
+        "react/react-in-jsx-scope": "off", // not necessary anymore
+        "react/prop-types": "off", // typescript handles types already
       },
     },
   ],
