@@ -9,6 +9,8 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:astro/recommended",
+    "plugin:jsx-a11y/strict",
     // Excludes ESLint's rules that conflict with prettier
     "prettier",
   ],
@@ -20,7 +22,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "unused-imports"],
+  plugins: ["react", "@typescript-eslint", "unused-imports", "jsx-a11y"],
   rules: {
     "react/react-in-jsx-scope": "off", // not necessary anymore
     "react/prop-types": "off", // typescript handles types already
@@ -41,4 +43,18 @@ module.exports = {
     // -- eslint plugin unused import end
   },
   settings: { react: { version: "detect" } },
+  overrides: [
+    {
+      files: ["*.astro"],
+      parser: "astro-eslint-parser",
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"],
+      },
+      rules: {
+        // override/add rules settings here, such as:
+        // "astro/no-set-html-directive": "error"
+      },
+    },
+  ],
 };
