@@ -1,6 +1,7 @@
 ---
 import { palette } from "../styles/palette";
 import { hyperlinkCss } from "../styles/hyperlink";
+import { compositionCss } from "../styles/composition";
 
 export interface Props {
   jobTitle: string;
@@ -40,7 +41,7 @@ const { secondaryText } = palette;
       </div>
     </dl>
   </header>
-  <section><slot /></section>
+  <section class={compositionCss()}><slot /></section>
 </article>
 
 <style lang="scss" define:vars={{ secondaryText }}>
