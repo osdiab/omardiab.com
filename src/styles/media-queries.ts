@@ -1,4 +1,3 @@
-import { css } from "@stitches/react";
 import { AtLeastOneKeyPresent, mapValues, omitKeys } from "../utility/object";
 
 export enum MediaSize {

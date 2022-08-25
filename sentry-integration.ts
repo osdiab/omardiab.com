@@ -23,7 +23,7 @@ export function sentryIntegration(opts: PluginOptions): AstroIntegration {
       // because we're uploading our sourcemaps to sentry and don't need to include their urls in the
       // associated JavaScript.
       "astro:build:setup": async ({ vite }) => {
-        if (!!authToken) {
+        if (authToken) {
           vite.build ||= {};
           vite.build.sourcemap = "hidden";
         }
