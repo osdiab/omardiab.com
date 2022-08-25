@@ -11,8 +11,6 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     // Excludes ESLint's rules that conflict with prettier
     "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -22,11 +20,25 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "unused-imports"],
   rules: {
     "react/react-in-jsx-scope": "off", // not necessary anymore
     "react/prop-types": "off", // typescript handles types already
     "@typescript-eslint/consistent-type-definitions": ["warn", "interface"], // interfaces more performant
+    // -- eslint plugin unused import start
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      // allow trailing underscore
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+      },
+    ],
+    // -- eslint plugin unused import end
   },
   settings: { react: { version: "detect" } },
 };
