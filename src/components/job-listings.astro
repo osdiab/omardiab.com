@@ -1,5 +1,6 @@
 ---
-import JobListing from "./JobListing.astro";
+import { hyperlinkCss } from "../styles/hyperlink";
+import JobListing from "./job-listing.astro";
 ---
 
 <ul>
@@ -9,7 +10,7 @@ import JobListing from "./JobListing.astro";
       companyTagline="Donate to any charity and share your learnings to advance good."
       companyUrl="https://www.every.org"
       jobTitle="Cofounder and Head of Engineering"
-      timeAtJob="2018-present"
+      timeAtJob="2018-2021"
     >
       <p>
         Every.org is the easiest way to give to any nonprofit, and seeks to make
@@ -34,7 +35,9 @@ import JobListing from "./JobListing.astro";
       <p>
         <b>
           Omar co-implemented{" "}
-          <a href="https://clever.com/products/badges">Clever Badges</a>
+          <a class={hyperlinkCss()} href="https://clever.com/products/badges"
+            >Clever Badges</a
+          >
         </b>
         : the simplest way for young students to log into educational services. Young
         children have trouble remembering passwords, so Clever Badges lets them log
@@ -67,7 +70,7 @@ import JobListing from "./JobListing.astro";
 <style lang="scss">
   ul {
     display: grid;
-    gap: 32px;
+    gap: 48px 32px;
     grid-template-columns: 1fr 1fr;
 
     justify-content: center;

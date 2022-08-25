@@ -1,4 +1,0 @@
-name = "omardiab-com-nextjs-fab"
-type = "webpack"
-workers_dev = false
-route = "www.omardiab.com/*"

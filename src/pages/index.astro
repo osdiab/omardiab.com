@@ -1,14 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import JobListings from "../components/JobListings.astro";
+import JobListings from "../components/job-listings.astro";
+import { pageSection } from "../styles/page-section";
+import { css } from "@stitches/react";
+import { initSentryServer } from "../utility/sentry-server";
+
+initSentryServer();
+const bannerCss = css({ fontSize: "2rem", maxWidth: "80%" });
 ---
 
 <Layout title="Omar Diab">
-  <header class="page-section">
-    I design and implement simple, powerful, and maintainable products, from
-    start to finish.
+  <header class={pageSection()}>
+    <p class={bannerCss()}>
+      I design and implement simple, powerful, and maintainable products, from
+      start to finish.
+    </p>
   </header>
-  <section id="workHistory" class="page-section">
+  <section id="workHistory" class={pageSection()}>
     <h2>Work history</h2>
     <JobListings />
   </section>
@@ -25,10 +33,5 @@ import JobListings from "../components/JobListings.astro";
     display: flex;
     flex-direction: column;
     gap: 2rem;
-  }
-
-  header {
-    font-size: 2rem;
-    max-width: 80%;
   }
 </style>

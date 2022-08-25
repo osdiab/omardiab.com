@@ -1,6 +1,6 @@
 ---
-import type { ComponentChildren } from "preact";
 import { palette } from "../styles/palette";
+import { hyperlinkCss } from "../styles/hyperlink";
 
 export interface Props {
   jobTitle: string;
@@ -8,7 +8,6 @@ export interface Props {
   companyName: string;
   companyTagline: string;
   companyUrl?: string;
-  children: ComponentChildren;
 }
 const props = Astro.props as Props;
 const { secondaryText } = palette;
@@ -20,7 +19,9 @@ const { secondaryText } = palette;
       <h3>
         {
           props.companyUrl ? (
-            <a href={props.companyUrl}>{props.companyName}</a>
+            <a class={hyperlinkCss()} href={props.companyUrl}>
+              {props.companyName}
+            </a>
           ) : (
             props.companyName
           )
@@ -39,14 +40,27 @@ const { secondaryText } = palette;
       </div>
     </dl>
   </header>
-  <main>{props.children}</main>
+  <section><slot /></section>
 </article>
 
 <style lang="scss" define:vars={{ secondaryText }}>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
   header {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
+  h3 {
+    font-weight: 600;
   }
   hgroup {
     display: flex;
