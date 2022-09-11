@@ -2,10 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import JobListings from "../components/job-listings.astro";
 import { pageSection } from "../styles/page-section";
-import { initSentryServer } from "../utility/sentry-server";
 import { css } from "@stitches/react";
 
-initSentryServer();
 const bannerCss = css({ fontSize: "2rem", maxWidth: "80%" });
 ---
 

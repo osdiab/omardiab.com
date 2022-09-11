@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "doppler run -- astro dev",
-    "preview": "astro preview",
+    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
     "tail": "dotenv wrangler tail",
     "start": "astro dev",
     "build": "astro build",
@@ -20,9 +20,6 @@
     "test": "yarn lint && tsc"
   },
   "dependencies": {
-    "@sentry/cli": "^2.5.2",
-    "@sentry/node": "^7.11.1",
-    "@sentry/react": "^7.11.1",
     "@stitches/react": "^1.2.8",
     "globby": "^13.1.2",
     "react": "^18.0.0",
@@ -31,9 +28,8 @@
     "web-streams-polyfill": "^3.2.1"
   },
   "devDependencies": {
-    "@astrojs/cloudflare": "^1.0.1",
+    "@astrojs/deno": "^1.0.1",
     "@astrojs/react": "^1.0.0",
-    "@cloudflare/wrangler": "^1.19.12",
     "@types/node": "^18.7.11",
     "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
