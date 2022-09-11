@@ -1,11 +1,13 @@
-export function mapValues<Obj, Value>(
+// when used as generic, this is understandable
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function mapValues<Obj extends {}, Value>(
   obj: Obj,
   mapper: (value: Obj[keyof Obj], key: keyof Obj) => Value
 ): Record<keyof Obj, Value> {
   return Object.fromEntries(
     Object.entries(obj).map(([key, value]) => [
       key,
-      mapper(value, key as keyof Obj),
+      mapper(value as Obj[keyof Obj], key as keyof Obj),
     ])
   ) as Record<keyof Obj, Value>;
 }
@@ -24,7 +26,9 @@ export type AtLeastOneKeyPresent<
       Partial<Pick<Obj, Exclude<Keys, K>>>;
   }[Keys];
 
-export function omitKeys<Obj, Keys extends keyof Obj>(
+// when used as generic, this is understandable
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function omitKeys<Obj extends {}, Keys extends keyof Obj>(
   obj: Obj,
   toOmit: Keys[]
 ): Omit<Obj, Keys> {
