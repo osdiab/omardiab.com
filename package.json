@@ -13,6 +13,7 @@
     "eslint": "eslint --ignore-path .gitignore --ext \"js,ts,jsx,tsx,astro\"",
     "eslint:src": "yarn eslint ./src",
     "prettier:src": "prettier \"src/**/*.{ts,tsx,js,jsx}\"",
+    "typecheck": "yarn tsc",
     "lint": "yarn prettier:src --check && yarn eslint:src",
     "lint:fix": "yarn prettier:src --write && yarn eslint:src --fix",
     "format": "yarn prettier:src --write",

@@ -3,8 +3,36 @@ name: Deploy
 on: push
 
 jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Setup Node with Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn install --immutable
+      - name: Typecheck
+        run: yarn typecheck
+
+  lint:
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Setup Node with Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn install --immutable
+      - name: Lint
+        run: yarn lint
+
   deploy:
     runs-on: ubuntu-latest
+    needs: [typecheck, lint]
 
     permissions:
       id-token: write # This is required to allow the GitHub Action to authenticate with Deno Deploy.
