@@ -41,9 +41,9 @@ yarn-error.log*
 
 # END Next.JS
 
-# yarn berry with zeroinstalls
+# yarn berry without zeroinstalls
+.pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
