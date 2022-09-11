@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import JobListings from "../components/job-listings.astro";
+import { pageSection } from "../styles/page-section";
+import { css } from "@stitches/react";
+
+const bannerCss = css({ fontSize: "2rem", maxWidth: "80%" });
+---
+
+<Layout title="Omar Diab">
+  <header class={pageSection()}>
+    <p class={bannerCss()}>
+      I design and implement simple, powerful, and maintainable products, from
+      start to finish.
+    </p>
+  </header>
+  <section id="workHistory" class={pageSection()}>
+    <h2>Work history</h2>
+    <JobListings />
+  </section>
+</Layout>
+
+<style lang="scss">
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #workHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

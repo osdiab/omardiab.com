@@ -20,6 +20,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -28,7 +31,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "astro"
   ],
   "rewrap.wrappingColumn": 80,
   "rewrap.doubleSentenceSpacing": true,
@@ -39,6 +43,7 @@
     "**/.pnp.*": true
   },
   "eslint.nodePath": ".yarn/sdks",
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  // "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "prettier.documentSelectors": ["**/*.astro"],
   "typescript.enablePromptUseWorkspaceTsdk": true
 }

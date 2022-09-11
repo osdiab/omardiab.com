@@ -1,0 +1,88 @@
+---
+import { palette } from "../styles/palette";
+import { hyperlinkCss } from "../styles/hyperlink";
+import { compositionCss } from "../styles/composition";
+
+export interface Props {
+  jobTitle: string;
+  timeAtJob: string;
+  companyName: string;
+  companyTagline: string;
+  companyUrl?: string;
+}
+const props = Astro.props as Props;
+const { secondaryText } = palette;
+---
+
+<article>
+  <header>
+    <hgroup>
+      <h3>
+        {
+          props.companyUrl ? (
+            <a class={hyperlinkCss()} href={props.companyUrl}>
+              {props.companyName}
+            </a>
+          ) : (
+            props.companyName
+          )
+        }
+      </h3>
+      <h4>{props.companyTagline}</h4>
+    </hgroup>
+    <dl>
+      <div>
+        <dt>Title</dt>
+        <dd>{props.jobTitle}</dd>
+      </div>
+      <div>
+        <dt>Time</dt>
+        <dd>{props.timeAtJob}</dd>
+      </div>
+    </dl>
+  </header>
+  <section class={compositionCss()}><slot /></section>
+</article>
+
+<style lang="scss" define:vars={{ secondaryText }}>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  h3 {
+    font-weight: 600;
+  }
+  hgroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+
+    dt,
+    dd {
+      font-size: 1rem;
+    }
+    dt {
+      color: var(--secondaryText);
+      margin-bottom: 4px;
+    }
+  }
+</style>

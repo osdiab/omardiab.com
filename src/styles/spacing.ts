@@ -1,6 +1,5 @@
-import { css } from "@emotion/react";
-import { CSSInterpolation } from "@emotion/serialize";
-import { mapValues } from "src/utility/object";
+import { css } from "@stitches/react";
+import { mapValues } from "../utility/object";
 
 /**
  * Standard spacing values expressed as number of pixels
@@ -21,11 +20,7 @@ export const rawSpacing = {
 /**
  * Standard spacing values expressed as pixel CSS strings
  */
-export const spacing = Object.fromEntries(
-  Object.entries(rawSpacing).map((value) => [value[0], `${value[1]}px`])
-) as {
-  [key in keyof typeof rawSpacing]: string;
-};
+export const spacing = mapValues(rawSpacing, (numPx) => `${numPx}px`);
 
 /**
  * CSS mixin to use on a parent component to make each of its children display
@@ -44,20 +39,13 @@ export const spacing = Object.fromEntries(
  * )
  * // ^^ these list items will be side by side with spacing.m space between them
  */
-export const horizontalStackCss: {
-  [key in keyof typeof rawSpacing]: CSSInterpolation;
-} = mapValues(
-  rawSpacing,
-  (numPx) => css`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    > * {
-      &:not(:last-child) {
-        margin-right: ${numPx}px;
-      }
-    }
-  `
+export const horizontalStackCss = mapValues(rawSpacing, (numPx) =>
+  css({
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    gap: `${numPx}px`,
+  })
 );
 
 /**
@@ -93,34 +81,11 @@ export const horizontalStackCss: {
  * // ^^ stuff inside the div will be spaced apart with spacing.m, but elements
  * // in the ul are spaced by spacing.l
  */
-export const verticalStackCss: {
-  [key in keyof typeof rawSpacing]: CSSInterpolation;
-} = mapValues(
-  rawSpacing,
-  (numPx) => css`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    > * {
-      &:not(:last-child) {
-        margin-bottom: ${numPx}px;
-      }
-    }
-  `
-);
-
-export const wrappingHorizontalStackCss: Record<
-  keyof typeof rawSpacing,
-  CSSInterpolation
-> = mapValues(
-  rawSpacing,
-  (numberPx) => css`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: calc(-${numberPx}px / 2);
-    > * {
-      margin: calc(${numberPx}px / 2);
-    }
-  `
+export const verticalStackCss = mapValues(rawSpacing, (numPx) =>
+  css({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    gap: `${numPx}px`,
+  })
 );
