@@ -51,14 +51,9 @@ jobs:
       - name: Build
         run: yarn build
 
-      # needed since deno deploy times out otherwise and action lacks support
-      # for exclude param https://github.com/denoland/deployctl/issues/100
-      - name: Delete node_modules
-        run: rm -rf node_modules
-
       - name: Deploy to Deno Deploy
-        uses: denoland/deployctl@v1
+        uses: osdiab/deployctl@patch-1
         with:
           project: omardiab
           entrypoint: ./dist/server/entry.mjs
-          exclude: ./node_modules
+          include: ./dist
