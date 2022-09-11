@@ -56,4 +56,4 @@ jobs:
         with:
           project: omardiab
           entrypoint: ./dist/server/entry.mjs
-          exclude: ./node_modules
+          include: ./dist
