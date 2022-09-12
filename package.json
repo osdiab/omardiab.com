@@ -20,11 +20,13 @@
     "test": "yarn lint && tsc"
   },
   "dependencies": {
+    "@astrojs/preact": "^1.1.0",
     "@stitches/react": "^1.2.8",
     "globby": "^13.1.2",
     "is-absolute-url": "^4.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "preact": "^10.6.5",
+    "react": "npm:@preact/compat@^17",
+    "react-dom": "npm:@preact/compat@^17",
     "react-icons": "^4.4.0",
     "url": "^0.11.0",
     "web-streams-polyfill": "^3.2.1"

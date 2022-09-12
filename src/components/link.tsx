@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { ComponentProps } from "react";
 import isAbsoluteUrl from "is-absolute-url";
 import { IoOpenOutline } from "react-icons/io5";

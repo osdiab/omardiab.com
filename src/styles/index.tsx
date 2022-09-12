@@ -1,3 +1,4 @@
+import * as React from "react";
 import { getCssText } from "../../stitches.config";
 
 export function Styles() {

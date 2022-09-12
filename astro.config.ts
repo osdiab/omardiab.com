@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
-
 import deno from "@astrojs/deno";
+
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: deno(),
-  integrations: [react()],
+  integrations: [preact({ compat: true })],
 });
