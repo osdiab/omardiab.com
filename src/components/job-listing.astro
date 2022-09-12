@@ -3,7 +3,7 @@ import { palette } from "../styles/palette";
 import { Link } from "./link";
 import { compositionCss } from "../styles/composition";
 import { spacing, stackCss } from "../styles/spacing";
-import { css } from "@stitches/react";
+import { css } from "../../stitches.config";
 import { boldCss, textSizeCss } from "../styles/text";
 
 export interface Props {
@@ -38,7 +38,7 @@ const props = Astro.props as Props;
         "& > div": {
           ...stackCss({ gap: spacing.xxs }),
           color: palette.secondaryText,
-          "& > dt": boldCss,
+          "& dt": boldCss,
         },
       })()}
     >

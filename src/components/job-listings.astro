@@ -1,14 +1,19 @@
 ---
-import { css } from "@stitches/react";
+import { css } from "../../stitches.config";
 import { spacing } from "../styles/spacing";
 import JobListing from "./job-listing.astro";
 import { Link } from "./link";
 ---
 
-<ul class={css({
-      display: "grid",
-    gap: `${spacing.xxl} ${spacing.xl}`,
-    gridTemplateColumns: "1fr 1fr",
+<ul
+  class={css({
+    display: "grid",
+    gap: spacing.l,
+    gridTemplateColumns: "1fr",
+    "@tablet": {
+      gap: `${spacing.xxl} ${spacing.xl}`,
+      gridTemplateColumns: "1fr 1fr",
+    },
     justifyContent: "center",
     alignItems: "start",
     listStyleType: "none",
@@ -17,8 +22,9 @@ import { Link } from "./link";
       minWidth: "250px",
       width: "100%",
       maxWidth: "450px",
-    }}
-)()}>
+    },
+  })()}
+>
   <li>
     <JobListing
       companyName="Every.org"
@@ -79,4 +85,3 @@ import { Link } from "./link";
     </JobListing>
   </li>
 </ul>
-

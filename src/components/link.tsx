@@ -5,7 +5,7 @@ import { IoOpenOutline } from "react-icons/io5";
 import { stackCss } from "../styles/spacing";
 import { hyperlinkCss } from "../styles/hyperlink";
 import { joinClasses } from "../utility/css";
-import { css } from "@stitches/react";
+import { css } from "../../stitches.config";
 
 export type LinkProps = ComponentProps<"a">;
 export function Link({ href, children, className, ...rest }: LinkProps) {

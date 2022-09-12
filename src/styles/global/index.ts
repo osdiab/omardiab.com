@@ -1,4 +1,4 @@
-import { globalCss } from "@stitches/react";
+import { globalCss } from "../../../stitches.config";
 import { palette } from "../palette";
 import { boldCss } from "../text";
 
