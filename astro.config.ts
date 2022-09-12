@@ -8,9 +8,4 @@ export default defineConfig({
   output: "server",
   adapter: deno(),
   integrations: [react()],
-  vite: {
-    ssr: {
-      noExternal: ["modern-normalize"],
-    },
-  },
 });
