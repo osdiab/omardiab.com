@@ -1,5 +1,5 @@
 ---
-import { hyperlinkCss } from "../styles/hyperlink";
+import { Link } from "../components/link";
 import { pageSection } from "../styles/page-section";
 ---
 
@@ -8,24 +8,19 @@ import { pageSection } from "../styles/page-section";
     <h2>Get in touch</h2>
     <p>
       Feel free to{" "}
-      <a class={hyperlinkCss()} href="mailto:hello@omardiab.com"
-        >shoot me an email</a
-      >
+      <Link href="mailto:hello@omardiab.com">shoot me an email</Link>
       {" or "}
-      <a class={hyperlinkCss()} href="https://linkedin.com/in/osdiab"
-        >check my LinkedIn</a
-      >.
+      <Link href="https://linkedin.com/in/osdiab">check my LinkedIn.</Link>
     </p>
   </section>
   <section id="fork-github" class={pageSection()}>
     <p>
       Like this site? Feel free to{" "}
-      <a class={hyperlinkCss()} href="https://github.com/osdiab/omardiab.com">
-        fork it on Github</a
-      >{" "}
-      and make it your own.
-    </p>
-    <p>Omar Diab, {new Date().getFullYear()}</p>
+      <Link href="https://github.com/osdiab/omardiab.com">
+        fork it on Github{" "}
+        and make it your own.
+      </Link>
+    </p><p>Omar Diab, {new Date().getFullYear()}</p>
   </section>
 </footer>
 

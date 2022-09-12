@@ -1,6 +1,6 @@
 ---
 import { palette } from "../styles/palette";
-import { hyperlinkCss } from "../styles/hyperlink";
+import { Link } from "./link";
 import { compositionCss } from "../styles/composition";
 
 export interface Props {
@@ -20,9 +20,7 @@ const { secondaryText } = palette;
       <h3>
         {
           props.companyUrl ? (
-            <a class={hyperlinkCss()} href={props.companyUrl}>
-              {props.companyName}
-            </a>
+            <Link href={props.companyUrl}>{props.companyName}</Link>
           ) : (
             props.companyName
           )
