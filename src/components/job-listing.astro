@@ -2,6 +2,9 @@
 import { palette } from "../styles/palette";
 import { Link } from "./link";
 import { compositionCss } from "../styles/composition";
+import { spacing, stackCss } from "../styles/spacing";
+import { css } from "@stitches/react";
+import { boldCss, textSizeCss } from "../styles/text";
 
 export interface Props {
   jobTitle: string;
@@ -11,13 +14,12 @@ export interface Props {
   companyUrl?: string;
 }
 const props = Astro.props as Props;
-const { secondaryText } = palette;
 ---
 
-<article>
-  <header>
-    <hgroup>
-      <h3>
+<article class={css(stackCss({ gap: spacing.l }))()}>
+  <header class={css(stackCss({ gap: spacing.m }))()}>
+    <hgroup class={css(stackCss({ gap: spacing.s }))()}>
+      <h3 class={css(textSizeCss.m, boldCss)()}>
         {
           props.companyUrl ? (
             <Link href={props.companyUrl}>{props.companyName}</Link>
@@ -28,7 +30,18 @@ const { secondaryText } = palette;
       </h3>
       <h4>{props.companyTagline}</h4>
     </hgroup>
-    <dl>
+    <dl
+      class={css({
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: spacing.xs,
+        "& > div": {
+          ...stackCss({ gap: spacing.xxs }),
+          color: palette.secondaryText,
+          "& > dt": boldCss,
+        },
+      })()}
+    >
       <div>
         <dt>Title</dt>
         <dd>{props.jobTitle}</dd>
@@ -39,48 +52,5 @@ const { secondaryText } = palette;
       </div>
     </dl>
   </header>
-  <section class={compositionCss()}><slot /></section>
+  <section class={css(compositionCss)()}><slot /></section>
 </article>
-
-<style lang="scss" define:vars={{ secondaryText }}>
-  article {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  header {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  h3 {
-    font-weight: 600;
-  }
-  hgroup {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-  }
-  dl {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-
-    dt,
-    dd {
-      font-size: 1rem;
-    }
-    dt {
-      color: var(--secondaryText);
-      margin-bottom: 4px;
-    }
-  }
-</style>

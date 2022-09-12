@@ -1,11 +1,10 @@
-import { CSS, css } from "@stitches/react";
+import type { CSS } from "@stitches/react";
 import { palette } from "./palette";
 
-export const hyperlinkRawCss: CSS = {
+export const hyperlinkCss: CSS = {
   color: palette.primary,
   textDecoration: "underline",
   "&:hover,&:focus": {
     color: palette.primaryHighlight,
   },
 };
-export const hyperlinkCss = css(hyperlinkRawCss);

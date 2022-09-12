@@ -1,9 +1,24 @@
 ---
+import { css } from "@stitches/react";
+import { spacing } from "../styles/spacing";
 import JobListing from "./job-listing.astro";
 import { Link } from "./link";
 ---
 
-<ul>
+<ul class={css({
+      display: "grid",
+    gap: `${spacing.xxl} ${spacing.xl}`,
+    gridTemplateColumns: "1fr 1fr",
+    justifyContent: "center",
+    alignItems: "start",
+    listStyleType: "none",
+
+    "& > li": {
+      minWidth: "250px",
+      width: "100%",
+      maxWidth: "450px",
+    }}
+)()}>
   <li>
     <JobListing
       companyName="Every.org"
@@ -65,24 +80,3 @@ import { Link } from "./link";
   </li>
 </ul>
 
-<style lang="scss">
-  ul {
-    display: grid;
-    gap: 48px 32px;
-    grid-template-columns: 1fr 1fr;
-
-    justify-content: center;
-    align-items: start;
-    list-style-type: none;
-    > li {
-      flex-basis: calc(50% - 32px);
-      min-width: 250px;
-      width: 100%;
-      max-width: 450px;
-      flex-shrink: 0;
-      flex-grow: 1;
-      article {
-      }
-    }
-  }
-</style>

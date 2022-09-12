@@ -1,35 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import JobListings from "../components/job-listings.astro";
-import { pageSection } from "../styles/page-section";
+import { pageSectionCss } from "../styles/page-section";
 import { css } from "@stitches/react";
-
-const bannerCss = css({ fontSize: "2rem", maxWidth: "80%" });
+import { spacing, stackCss } from "../styles/spacing";
 ---
 
 <Layout title="Omar Diab">
-  <header class={pageSection()}>
-    <p class={bannerCss()}>
+  <header class={css(pageSectionCss)()}>
+    <p class={css({ fontSize: "2rem", maxWidth: "80%" })()}>
       I design and implement simple, powerful, and maintainable products, from
       start to finish.
     </p>
   </header>
-  <section id="workHistory" class={pageSection()}>
+  <section
+    id="workHistory"
+    class={css(pageSectionCss, stackCss({ gap: spacing.m }))()}
+  >
     <h2>Work History</h2>
     <JobListings />
   </section>
 </Layout>
-
-<style lang="scss">
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  #workHistory {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-</style>

@@ -1,11 +1,7 @@
-import { css } from "@stitches/react";
-import { hyperlinkRawCss } from "./hyperlink";
-import { spacing } from "./spacing";
+import type { CSS } from "@stitches/react";
+import { spacing, stackCss } from "./spacing";
 
-export const compositionCss = css({
-  display: "flex",
-  flexDirection: "column",
-  gap: spacing.m,
+export const compositionCss: CSS = {
+  ...stackCss({ flexDirection: "column", gap: spacing.m }),
   maxWidth: "60ch",
-  "& a": hyperlinkRawCss,
-});
+};

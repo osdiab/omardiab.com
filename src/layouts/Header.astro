@@ -1,39 +1,29 @@
 ---
+import { css } from "@stitches/react";
 import avatarImg from "../assets/avatar.jpg";
-import { pageSection } from "../styles/page-section";
+import { pageSectionCss } from "../styles/page-section";
 import { palette } from "../styles/palette";
-const { primary } = palette;
+import { spacing, stackCss } from "../styles/spacing";
+import { boldCss } from "../styles/text";
 ---
 
-<header class={pageSection()}>
-  <img src={avatarImg} alt="Portrait of Omar Diab" />
+<header
+  class={css(
+    stackCss({ gap: spacing.m, alignItems: "center", flexDirection: "row" }),
+    pageSectionCss
+  )()}
+>
+  <img
+    class={css({ width: "150px", height: "150px", objectFit: "cover" })()}
+    src={avatarImg}
+    alt="Portrait of Omar Diab"
+  />
 
-  <h1>
+  <h1
+    class={css(boldCss, {
+      "& b": { color: palette.primary, display: "inline-block" },
+    })()}
+  >
     Hi, I&rsquo;m <b>Omar Diab</b>
   </h1>
 </header>
-
-<style lang="scss" define:vars={{ primary }}>
-  header {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    margin-bottom: 0;
-    border: 0;
-  }
-  img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-  }
-  h1 {
-    font-weight: 600;
-    margin: 0;
-    b {
-      font-weight: 700;
-      color: var(--primary);
-      display: inline-block;
-    }
-  }
-</style>

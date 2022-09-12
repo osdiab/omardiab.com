@@ -1,6 +1,5 @@
-import { css } from "@stitches/react";
+import type { CSS } from "@stitches/react";
 import { mapValues } from "../utility/object";
-import { palette } from "./palette";
 
 /**
  * Standard text sizes expressed as number of px
@@ -45,11 +44,15 @@ const remLineHeights = mapValues(
 /**
  * CSS Mixins to apply the proper text size to a given element
  */
-export const textSizeCss = mapValues(remTextSizes, (textSize, key) =>
-  css({ lineHeight: remLineHeights[key], fontSize: textSize })
+export const textSizeCss = mapValues(
+  remTextSizes,
+  (textSize, key): CSS => ({
+    lineHeight: remLineHeights[key],
+    fontSize: textSize,
+  })
 );
 
 export const defaultFontFamily =
   "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif; ";
 
-export const emphasisCss = css({ fontWeight: 600, color: palette.primary });
+export const boldCss: CSS = { fontWeight: 600 };

@@ -1,6 +1,6 @@
-import "modern-normalize/modern-normalize.css";
 import { globalCss } from "@stitches/react";
 import { palette } from "../palette";
+import { boldCss } from "../text";
 
 export const appStyles = globalCss({
   "html, body": {
@@ -11,4 +11,5 @@ export const appStyles = globalCss({
     background: palette.background,
   },
   "*": { margin: 0, padding: 0 },
+  b: boldCss,
 });
