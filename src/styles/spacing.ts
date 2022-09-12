@@ -1,5 +1,6 @@
-import { css } from "@stitches/react";
+import { css, CSSProperties } from "@stitches/react";
 import { mapValues } from "../utility/object";
+import type { SetRequired } from "type-fest";
 
 /**
  * Standard spacing values expressed as number of pixels
@@ -22,70 +23,29 @@ export const rawSpacing = {
  */
 export const spacing = mapValues(rawSpacing, (numPx) => `${numPx}px`);
 
+interface StackCssProps
+  extends SetRequired<
+    Pick<CSSProperties, "gap" | "alignItems" | "flexDirection" | "flexWrap">,
+    "gap" | "flexDirection"
+  > {
+  display?: "flex" | "inline-flex";
+}
+
 /**
  * CSS mixin to use on a parent component to make each of its children display
- * horizontally side by side, with even spacing between them, known as a
- * horizontal "stack"
+ * with even spacing, known as a "stack"
  *
  * @see {@link https://every-layout.dev/layouts/stack/}
  *
  * @example
- * // (include JSX pragma at top of file if you're using CSS prop)
  * const MyComponent = () => (
- *   <ul css={horizontalStackCss.m}>
+ *   <ul css={stackCss({ flexDirection: "column", gap: spacing.m })}>
  *     <li>Elem 1</li>
  *     <li>Elem 2</li>
  *   </ul>
  * )
  * // ^^ these list items will be side by side with spacing.m space between them
  */
-export const horizontalStackCss = mapValues(rawSpacing, (numPx) =>
-  css({
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    gap: `${numPx}px`,
-  })
-);
-
-/**
- * CSS mixin to use on a parent component to make each of its children display
- * vertically "stacked" on each other, with even spacing between them, known as
- * a vertical "stack"
- *
- * @see {@link https://every-layout.dev/layouts/stack/}
- *
- * @example
- * // (include JSX pragma at top of file if you're using CSS prop)
- * const MyComponent = () => (
- *   <ul css={verticalStackCss.l}>
- *     <li>Elem 1</li>
- *     <li>Elem 2</li>
- *   </ul>
- * )
- * // ^^ these list items will be stacked with spacing.l space between them
- *
- * @example
- * // you can also nest stacks
- * const MyComponent: React.FC = () => (
- *   <ul css={verticalStackCss.l}>
- *     <li>Elem 1</li>
- *     <li>Elem 2</li>
- *     <div css={verticalStackCss.m}>
- *       <p>Hi</p>
- *       <p>Sup</p>
- *     </div>
- *     <li>Elem 3</li>
- *   </ul>
- * )
- * // ^^ stuff inside the div will be spaced apart with spacing.m, but elements
- * // in the ul are spaced by spacing.l
- */
-export const verticalStackCss = mapValues(rawSpacing, (numPx) =>
-  css({
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    gap: `${numPx}px`,
-  })
-);
+export function stackCss(props: StackCssProps) {
+  return css({ ...props })();
+}
