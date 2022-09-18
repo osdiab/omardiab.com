@@ -1,0 +1,29 @@
+---
+import type { MarkdownInstance } from "astro";
+
+export interface PostFrontmatter {
+  title: string;
+  description: string;
+  date: string;
+  tags?: string[];
+  draft?: boolean;
+}
+
+export interface Props {
+  posts: MarkdownInstance<PostFrontmatter>[];
+}
+const { posts } = Astro.props as Props;
+---
+
+<ul>
+  {
+    posts.map(({ frontmatter: { title, description } }) => (
+      <li>
+        <article>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </article>
+      </li>
+    ))
+  }
+</ul>

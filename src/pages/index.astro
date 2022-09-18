@@ -4,6 +4,16 @@ import JobListings from "../components/job-listings.astro";
 import { pageSectionCss } from "../styles/page-section";
 import { css } from "../../stitches.config";
 import { spacing, stackCss } from "../styles/spacing";
+import BlogPosts, { PostFrontmatter } from "../components/blog-posts.astro";
+
+const posts = (await Astro.glob<PostFrontmatter>("./post/*.mdx"))
+  .filter((p) => !p.frontmatter.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
+  );
+const sectionCss = css(pageSectionCss, stackCss({ gap: spacing.m }))();
 ---
 
 <Layout title="Omar Diab">
@@ -13,10 +23,15 @@ import { spacing, stackCss } from "../styles/spacing";
       start to finish.
     </p>
   </header>
-  <section
-    id="workHistory"
-    class={css(pageSectionCss, stackCss({ gap: spacing.m }))()}
-  >
+  {
+    posts.length > 0 && (
+      <section id="posts" class={sectionCss}>
+        <h2>Posts from Omar</h2>
+        <BlogPosts posts={posts} />
+      </section>
+    )
+  }
+  <section id="workHistory" class={sectionCss}>
     <h2>Work History</h2>
     <JobListings />
   </section>
