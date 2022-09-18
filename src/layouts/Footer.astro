@@ -1,14 +1,15 @@
 ---
-import { css } from "../../stitches.config";
+import classNames from "classnames";
 import { Link } from "../components/link";
-import { pageSectionCss } from "../styles/page-section";
-import { spacing, stackCss } from "../styles/spacing";
+import { pageSectionCss } from "../styles/page-section.css";
+import { stackCss } from "../styles/spacing.css";
+import { textCss } from "../styles/text.css";
 ---
 
-<footer class={css(stackCss({ gap: spacing.m }))()}>
+<footer class={stackCss({ gap: "m" })}>
   <section
     id="contact"
-    class={css(pageSectionCss, stackCss({ gap: spacing.m }))()}
+    class={classNames(pageSectionCss, stackCss({ gap: "m" }))}
   >
     <h2>Get in touch</h2>
     <p>
@@ -20,11 +21,11 @@ import { spacing, stackCss } from "../styles/spacing";
   </section>
   <section
     id="fork-github"
-    class={css(
+    class={classNames(
       pageSectionCss,
-      stackCss({ gap: spacing.s, alignItems: "center" }),
-      { textAlign: "center" }
-    )()}
+      stackCss({ gap: "s", alignItems: "center" }),
+      textCss({ textAlign: "center" })
+    )}
   >
     <p>
       Like this site? Feel free to{" "}

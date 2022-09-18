@@ -1,10 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import JobListings from "../components/job-listings.astro";
-import { pageSectionCss } from "../styles/page-section";
-import { css } from "../../stitches.config";
-import { spacing, stackCss } from "../styles/spacing";
 import BlogPosts, { PostFrontmatter } from "../components/blog-posts.astro";
+import classNames from "classnames";
+import { pageSectionCss } from "../styles/page-section.css";
+import { stackCss } from "../styles/spacing.css";
+import { headingTextCss } from "../components/home-page.css";
+import { textCss } from "../styles/text.css";
 
 const posts = (await Astro.glob<PostFrontmatter>("./post/*.mdx"))
   .filter((p) => !p.frontmatter.draft)
@@ -13,15 +15,21 @@ const posts = (await Astro.glob<PostFrontmatter>("./post/*.mdx"))
       new Date(b.frontmatter.date).getTime() -
       new Date(a.frontmatter.date).getTime()
   );
-const sectionCss = css(pageSectionCss, stackCss({ gap: spacing.m }))();
+
+const sectionCss = classNames(pageSectionCss, stackCss({ gap: "m" }));
 ---
 
 <Layout title="Omar Diab">
-  <header class={css(pageSectionCss)()}>
-    <p class={css({ fontSize: "2rem", maxWidth: "80%" })()}>
+  <header class={pageSectionCss}>
+    <h2
+      class={classNames(
+        textCss({ weight: "normal", size: "xl" }),
+        headingTextCss
+      )}
+    >
       I design and implement simple, powerful, and maintainable products, from
       start to finish.
-    </p>
+    </h2>
   </header>
   {
     posts.length > 0 && (

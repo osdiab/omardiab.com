@@ -1,6 +1,5 @@
 ---
-import { Styles } from "../styles";
-import { appStyles } from "../styles/global";
+import { mainCss } from "../styles/global.css";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 
@@ -9,11 +8,10 @@ export interface Props {
 }
 
 const { title } = Astro.props as Props;
-appStyles();
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class={mainCss}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -22,7 +20,6 @@ appStyles();
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="stylesheet" href="/modern-normalize.css" />
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -103,7 +100,6 @@ appStyles();
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <Styles />
   </head>
   <body>
     <Header />

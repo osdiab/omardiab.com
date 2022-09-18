@@ -1,29 +1,21 @@
 ---
-import { css } from "../../stitches.config";
+import classNames from "classnames";
 import avatarImg from "../assets/avatar-600.jpg";
-import { pageSectionCss } from "../styles/page-section";
-import { palette } from "../styles/palette";
-import { spacing, stackCss } from "../styles/spacing";
-import { boldCss } from "../styles/text";
+import { stackCss } from "../styles/spacing.css";
+import { textCss } from "../styles/text.css";
+import { pageSectionCss } from "../styles/page-section.css";
+import { avatarCss, nameHighlightCss } from "./header.css";
 ---
 
 <header
-  class={css(
-    stackCss({ gap: spacing.m, alignItems: "center", flexDirection: "row" }),
+  class={classNames(
+    stackCss({ gap: "m", alignItems: "center", flexDirection: "row" }),
     pageSectionCss
-  )()}
+  )}
 >
-  <img
-    class={css({ width: "150px", height: "150px", objectFit: "cover" })()}
-    src={avatarImg}
-    alt="Portrait of Omar Diab"
-  />
+  <img class={avatarCss} src={avatarImg} alt="Portrait of Omar Diab" />
 
-  <h1
-    class={css(boldCss, {
-      "& b": { color: palette.primary, display: "inline-block" },
-    })()}
-  >
-    Hi, I&rsquo;m <b>Omar Diab</b>
+  <h1 class={textCss({ weight: "bold" })}>
+    Hi, I&rsquo;m <b class={nameHighlightCss}>Omar Diab</b>
   </h1>
 </header>
