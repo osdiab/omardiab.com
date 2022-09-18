@@ -2,10 +2,8 @@ import { style } from "@vanilla-extract/css";
 import { mediaVariants } from "../styles/media-queries";
 import { spacing } from "../styles/spacing";
 import { stackCss } from "../styles/spacing.css";
-import { fontWeightCss, textSizeCss } from "../styles/text.css";
 import { themeVars } from "../styles/theme.css";
 
-export const companyNameCss = style([textSizeCss.m, fontWeightCss.bold]);
 export const metadataCss = style({
   display: "grid",
   gridTemplateColumns: "1fr 1fr",

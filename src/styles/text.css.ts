@@ -2,15 +2,12 @@ import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { fontWeights, textSizePx } from "./text";
 
-export const textSizeCss = styleVariants(
-  textSizePx,
-  ({ fontSize, lineHeight }) => ({
-    lineHeight: `${lineHeight}px`,
-    fontSize: `${fontSize}px`,
-  })
-);
+const textSizeCss = styleVariants(textSizePx, ({ fontSize, lineHeight }) => ({
+  lineHeight: `${lineHeight}px`,
+  fontSize: `${fontSize}px`,
+}));
 
-export const fontWeightCss = styleVariants(fontWeights, (fontWeight) => ({
+const fontWeightCss = styleVariants(fontWeights, (fontWeight) => ({
   fontWeight,
 }));
 

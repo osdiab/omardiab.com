@@ -2,12 +2,8 @@
 import { Link } from "./link";
 import { compositionCss } from "../styles/composition.css";
 import { stackCss } from "../styles/spacing.css";
-import { fontWeightCss } from "../styles/text.css";
-import {
-  companyNameCss,
-  metadataCss,
-  metadataItemCss,
-} from "./job-listing.css";
+import { textCss } from "../styles/text.css";
+import { metadataCss, metadataItemCss } from "./job-listing.css";
 
 export interface Props {
   jobTitle: string;
@@ -22,7 +18,7 @@ const props = Astro.props as Props;
 <article class={stackCss({ gap: "l" })}>
   <header class={stackCss({ gap: "m" })}>
     <hgroup class={stackCss({ gap: "s" })}>
-      <h3 class={companyNameCss}>
+      <h3 class={textCss({ size: "m", weight: "bold" })}>
         {
           props.companyUrl ? (
             <Link href={props.companyUrl}>{props.companyName}</Link>
@@ -40,7 +36,7 @@ const props = Astro.props as Props;
           { dt: "Time", dd: props.timeAtJob },
         ].map(({ dt, dd }) => (
           <div class={metadataItemCss}>
-            <dt class={fontWeightCss.bold}>{dt}</dt>
+            <dt class={textCss({ weight: "bold" })}>{dt}</dt>
             <dd>{dd}</dd>
           </div>
         ))
