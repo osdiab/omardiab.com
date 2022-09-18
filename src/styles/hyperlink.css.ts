@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
-import { palette } from "./palette";
+import { themeVars } from "./theme.css";
 
 const hoverStyle = {
-  color: palette.primaryHighlight,
+  color: themeVars.primary.highlight,
 };
 export const hyperlinkCss = style({
-  color: palette.primary,
+  color: themeVars.primary.normal,
   textDecoration: "underline",
   ":hover": hoverStyle,
   ":focus": hoverStyle,

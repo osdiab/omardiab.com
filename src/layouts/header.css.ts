@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { palette } from "../styles/palette";
+import { themeVars } from "../styles/theme.css";
 
 export const avatarCss = style({
   width: "150px",
@@ -7,6 +7,6 @@ export const avatarCss = style({
   objectFit: "cover",
 });
 export const nameHighlightCss = style({
-  color: palette.primary,
+  color: themeVars.primary.normal,
   display: "inline-block",
 });

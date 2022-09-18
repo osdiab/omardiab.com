@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 import { mediaVariants } from "../styles/media-queries";
-import { palette } from "../styles/palette";
 import { spacing } from "../styles/spacing";
 import { stackCss } from "../styles/spacing.css";
 import { fontWeightCss, textSizeCss } from "../styles/text.css";
+import { themeVars } from "../styles/theme.css";
 
 export const companyNameCss = style([textSizeCss.m, fontWeightCss.bold]);
 export const metadataCss = style({
@@ -13,7 +13,7 @@ export const metadataCss = style({
 });
 export const metadataItemCss = style([
   stackCss({ gap: "xxs" }),
-  { color: palette.secondaryText },
+  { color: themeVars.text.secondary },
 ]);
 
 export const jobListCss = style({

@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-import { palette } from "./palette";
 import { fontWeights, textSizeObjects } from "./text";
+import { themeVars } from "./theme.css";
 
 // 🔽 modern-normalize in vanilla-extract
 globalStyle("*, ::before, ::after", { boxSizing: "border-box" });
@@ -87,7 +87,7 @@ globalStyle("*", {
   margin: 0,
   padding: 0,
 });
-globalStyle("p", textSizeObjects.m);
+globalStyle("p", textSizeObjects.s);
 globalStyle("h1", textSizeObjects.xxl);
 globalStyle("h2, h3", textSizeObjects.xl);
 globalStyle("h2", textSizeObjects.l);
@@ -95,6 +95,6 @@ globalStyle("b", { fontWeight: fontWeights.bold });
 
 export const mainCss = style({
   minHeight: "100vh",
-  color: palette.bodyText,
-  background: palette.background,
+  color: themeVars.text.body,
+  background: themeVars.background,
 });
