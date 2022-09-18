@@ -17,8 +17,9 @@ export const themeVars = createThemeContract({
   background: "",
   text: { body: "", secondary: "" },
   primary: { normal: "", highlight: "" },
+  border: { light: "" },
 });
-const lightTheme = assignVars(themeVars, {
+const lightThemeVars = assignVars(themeVars, {
   background: colors.offWhite,
   text: {
     body: colors.offBlack,
@@ -28,8 +29,11 @@ const lightTheme = assignVars(themeVars, {
     normal: colors.brightOrange,
     highlight: colors.brighterOrange,
   },
+  border: { light: colors.lightGray },
 });
-const darkTheme = assignVars(themeVars, {
+export const lightThemeCss = style({ vars: lightThemeVars });
+
+const darkThemeVars = assignVars(themeVars, {
   background: colors.offBlack,
   text: {
     body: colors.offWhite,
@@ -39,9 +43,13 @@ const darkTheme = assignVars(themeVars, {
     normal: colors.brighterOrange,
     highlight: colors.brightOrange,
   },
+  border: { light: colors.darkGray },
 });
+export const darkThemeCss = style({ vars: darkThemeVars });
 
-export const themeCss = style({
-  vars: lightTheme,
-  "@media": { "(prefers-color-scheme: dark)": { vars: darkTheme } },
-});
+export const preferredThemeCss = style([
+  {
+    vars: lightThemeVars,
+    "@media": { "(prefers-color-scheme: dark)": { vars: darkThemeVars } },
+  },
+]);

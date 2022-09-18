@@ -33,7 +33,7 @@
     // Force the usage of the indexed syntax to access fields declared using an index signature.
     "noUncheckedIndexedAccess": true,
     "paths": {
-      "react": ["./node_modules/preact/compat/"],
+      "react": ["./node_modules/preact/compat/", "./types/react/"],
       "react-dom": ["./node_modules/preact/compat/"]
     }
   }
