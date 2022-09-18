@@ -1163,6 +1163,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vanilla-extract/css-utils@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@vanilla-extract/css-utils@npm:0.1.2"
+  checksum: 002c65889910c5a1f6672f2f0451e9667aa2a5e17eeb58cf14f4eda1869c6eed9a6a25951ffa444650a65919ecb61831c05380707ab787568be10927653ed53c
+  languageName: node
+  linkType: hard
+
 "@vanilla-extract/css@npm:^1.7.2, @vanilla-extract/css@npm:^1.9.0":
   version: 1.9.0
   resolution: "@vanilla-extract/css@npm:1.9.0"
@@ -5882,6 +5889,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.36.2
     "@typescript-eslint/parser": ^5.36.2
     "@vanilla-extract/css": ^1.9.0
+    "@vanilla-extract/css-utils": ^0.1.2
     "@vanilla-extract/recipes": ^0.2.5
     "@vanilla-extract/vite-plugin": ^3.5.0
     astro: ^1.2.1
