@@ -17,12 +17,14 @@ const { posts } = Astro.props as Props;
 
 <ul>
   {
-    posts.map(({ frontmatter: { title, description } }) => (
+    posts.map(({ url, frontmatter: { title, description } }) => (
       <li>
-        <article>
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </article>
+        <a href={url}>
+          <article>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </article>
+        </a>
       </li>
     ))
   }
