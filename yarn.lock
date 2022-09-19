@@ -794,15 +794,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-hook/media-query@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "@react-hook/media-query@npm:1.1.1"
-  peerDependencies:
-    react: ">=16.8"
-  checksum: 141d271789250e2703329f94486b7c866b9cf44a79a6c347cbacdf07f1d480adb0841d297dd1a87e310afb44173811e117cf03bdc92043e360752246553c619d
-  languageName: node
-  linkType: hard
-
 "@rollup/pluginutils@npm:^4.0.0":
   version: 4.2.1
   resolution: "@rollup/pluginutils@npm:4.2.1"
@@ -5940,7 +5931,6 @@ __metadata:
     "@astrojs/mdx": ^0.11.1
     "@astrojs/preact": ^1.1.0
     "@astrojs/react": ^1.1.2
-    "@react-hook/media-query": ^1.1.1
     "@types/body-parser": ^1.19.2
     "@types/cookie": ^0.5.1
     "@types/js-cookie": ^3.0.2
