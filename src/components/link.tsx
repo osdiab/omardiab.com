@@ -7,9 +7,16 @@ import classNames from "classnames";
 
 export type LinkProps = ComponentProps<"a">;
 export function Link({ href, children, className, ...rest }: LinkProps) {
-  const suffix = href && isAbsoluteUrl(href) ? <IoOpenOutline /> : null;
+  const absolute = !!href && isAbsoluteUrl(href);
+  const targetProps = absolute ? { target: "_blank", rel: "noreferrer" } : {};
+  const suffix = absolute ? <IoOpenOutline /> : null;
   return (
-    <a href={href} className={classNames(hyperlinkCss, className)} {...rest}>
+    <a
+      href={href}
+      className={classNames(hyperlinkCss, className)}
+      {...targetProps}
+      {...rest}
+    >
       <span>{children}</span>
       <span className={hyperlinkSuffixCss}>{suffix}</span>
     </a>
