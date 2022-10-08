@@ -86,6 +86,8 @@ globalStyle("summary", { display: "list-item" });
 globalStyle("*", {
   margin: 0,
   padding: 0,
+  scrollBehavior: "smooth",
+  scrollPaddingTop: "80px",
 });
 globalStyle("p", textSizeObjects.s);
 globalStyle("h1", textSizeObjects.xxl);
