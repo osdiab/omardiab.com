@@ -22,27 +22,26 @@ const posts = (await Astro.glob<PostFrontmatter>("./post/*.mdx"))
       new Date(a.frontmatter.date).getTime()
   )
   .slice(0, 5);
-
-const sectionCss = classNames(pageSectionCss, stackCss({ gap: "m" }));
 ---
 
 <Layout title="Omar Diab">
-  <article class={stackCss({ gap: "xl" })}>
+  <article class={stackCss({ gap: "xxl" })}>
     <header
-      class={classNames(
-        headingTheme,
-        stackCss({ gap: "m", alignItems: "center", flexDirection: "row" }),
-        pageSectionCss
-      )}
+      class={classNames(headingTheme, pageSectionCss, stackCss({ gap: "l" }))}
     >
-      <img class={avatarCss} src={avatarImg} alt="Portrait of Omar Diab" />
+      <div
+        class={stackCss({
+          gap: "m",
+          alignItems: "center",
+          flexDirection: "row",
+        })}
+      >
+        <img class={avatarCss} src={avatarImg} alt="Portrait of Omar Diab" />
 
-      <h1 class={headingTextCss}>
-        Hi, I&rsquo;m <b class={nameHighlightCss}>Omar Diab</b>
-      </h1>
-    </header>
-
-    <section class={pageSectionCss}>
+        <h1 class={headingTextCss}>
+          Hi, I&rsquo;m <b class={nameHighlightCss}>Omar Diab</b>
+        </h1>
+      </div>
       <h2
         class={classNames(
           textCss({ weight: "normal", size: "xl" }),
@@ -52,16 +51,24 @@ const sectionCss = classNames(pageSectionCss, stackCss({ gap: "m" }));
         I design and implement simple, powerful, and maintainable products, from
         start to finish.
       </h2>
-    </section>
+    </header>
+
     {
       posts.length > 0 && (
-        <section id="recent-posts" class={sectionCss}>
+        <section
+          id="recent-posts"
+          class={classNames(pageSectionCss, stackCss({ gap: "m" }))}
+        >
           <h2>Recent Posts</h2>
           <BlogPosts posts={posts} />
         </section>
       )
     }
-    <section id="work-history" class={sectionCss}>
+
+    <section
+      id="work-history"
+      class={classNames(pageSectionCss, stackCss({ gap: "m" }))}
+    >
       <h2>Work History</h2>
       <JobListings />
     </section>

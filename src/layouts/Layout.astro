@@ -1,6 +1,7 @@
 ---
 import classNames from "classnames";
 import { mainCss } from "../styles/global.css";
+import { stackCss } from "../styles/spacing.css";
 import {
   darkThemeCss,
   lightThemeCss,
@@ -118,12 +119,14 @@ const curPath = Astro.url.href.slice(Astro.url.origin.length) || "/";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class={stackCss({ gap: "xxxl" })}>
     <ThemeSwitcher selected={theme} path={curPath} client:idle />
-    <Header />
-    <main>
-      <slot />
-    </main>
+    <div class={stackCss({ gap: "l" })}>
+      <Header />
+      <main>
+        <slot />
+      </main>
+    </div>
     <Footer />
   </body>
 </html>
