@@ -8,7 +8,6 @@
   "scripts": {
     "dev": "doppler run -- astro dev",
     "start": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
-    "tail": "dotenv wrangler tail",
     "build": "astro build",
     "eslint": "eslint --ignore-path .gitignore --ext \"js,ts,jsx,tsx,astro\"",
     "eslint:src": "yarn eslint ./src",
