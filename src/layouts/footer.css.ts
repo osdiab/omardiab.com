@@ -7,9 +7,11 @@ import { textCss } from "../styles/text.css";
 
 export const footerCss = classNames(
   pageSectionCss,
-  stackCss({ gap: "xl", alignItems: "center" }),
-  textCss({ textAlign: "center" }),
   style({ paddingBottom: spacing.xxl })
+);
+export const footerContentCss = classNames(
+  style({ maxWidth: "50ch" }),
+  stackCss({ gap: "xl" })
 );
 
 export const footerCopyrightCss = classNames(

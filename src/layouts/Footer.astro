@@ -1,32 +1,34 @@
 ---
 import { Link } from "../components/link";
 import { stackCss } from "../styles/spacing.css";
-import { footerCopyrightCss, footerCss } from "./footer.css";
+import { footerContentCss, footerCopyrightCss, footerCss } from "./footer.css";
 ---
 
 <footer class={footerCss}>
-  <div class={stackCss({ gap: "m", alignItems: "center" })}>
-    <p>
-      <strong>Want to chat?</strong> Feel free to{" "}
-      <Link href="mailto:hello@omardiab.com">shoot me an email.</Link>
-    </p>
-    <p>
-      This site is hosted globally with <Link href="https://deno.com/deploy"
-        >Deno Deploy</Link
-      >, built with great tools including <Link href="https://astro.build/"
-        >Astro</Link
-      >, <Link href="https://preactjs.com/">Preact</Link>, and <Link
-        href="https://vanilla-extract.style/">Vanilla Extract</Link
-      >.
-    </p>
+  <div class={footerContentCss}>
+    <div class={stackCss({ gap: "m" })}>
+      <p>
+        <strong>Want to chat?</strong> Feel free to{" "}
+        <Link href="mailto:hello@omardiab.com">shoot me an email.</Link>
+      </p>
+      <p>
+        This site is hosted globally with <Link href="https://deno.com/deploy"
+          >Deno Deploy</Link
+        >, built with great tools including <Link href="https://astro.build/"
+          >Astro</Link
+        >, <Link href="https://preactjs.com/">Preact</Link>, and <Link
+          href="https://vanilla-extract.style/">Vanilla Extract</Link
+        >.
+      </p>
 
-    <p>
-      Like it? <Link href="https://github.com/osdiab/omardiab.com"
-        >Fork it.</Link
-      >
+      <p>
+        Like it? <Link href="https://github.com/osdiab/omardiab.com"
+          >Fork it.</Link
+        >
+      </p>
+    </div>
+    <p class={footerCopyrightCss}>
+      Omar Diab, {new Date().getFullYear()}
     </p>
   </div>
-  <p class={footerCopyrightCss}>
-    Omar Diab, {new Date().getFullYear()}
-  </p>
 </footer>
