@@ -16,7 +16,11 @@ export const textCss = recipe({
   variants: {
     size: textSizeCss,
     weight: fontWeightCss,
-    textAlign: { start: "start", center: "center", end: "end" },
+    textAlign: {
+      start: { textAlign: "start" },
+      center: { textAlign: "center" },
+      end: { textAlign: "end" },
+    },
     color: {
       body: themeVars.text.body,
       primary: themeVars.primary.normal,

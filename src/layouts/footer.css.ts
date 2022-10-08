@@ -7,7 +7,7 @@ import { textCss } from "../styles/text.css";
 
 export const footerCss = classNames(
   pageSectionCss,
-  stackCss({ gap: "l", alignItems: "center" }),
+  stackCss({ gap: "xl", alignItems: "center" }),
   textCss({ textAlign: "center" }),
   style({ paddingBottom: spacing.xxl })
 );
