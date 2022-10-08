@@ -1,5 +1,14 @@
 ---
 import type { MarkdownInstance } from "astro";
+import { IoArrowForward } from "react-icons/io5";
+import {
+  postListCss,
+  postMetadataCss,
+  postPreviewCss,
+  postTimestampCss,
+  viewPostLinkCss,
+} from "./blog-posts.css";
+import { Link } from "./link";
 
 export interface PostFrontmatter {
   title: string;
@@ -15,16 +24,28 @@ export interface Props {
 const { posts } = Astro.props as Props;
 ---
 
-<ul>
+<ul class={postListCss}>
   {
-    posts.map(({ url, frontmatter: { title, description } }) => (
+    posts.map(({ url, frontmatter: { title, description, date } }) => (
       <li>
-        <a href={url}>
-          <article>
-            <h3>{title}</h3>
-            <p>{description}</p>
-          </article>
-        </a>
+        <article class={postPreviewCss}>
+          <h3>{title}</h3>
+          <p>{description}</p>
+          <aside class={postMetadataCss}>
+            <Link href={url}>
+              <IoArrowForward slot="prefix" />
+              Read More
+            </Link>
+            <time class={postTimestampCss} datetime={date}>
+              {new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(
+                new Date(date)
+              )}
+            </time>
+          </aside>
+          <a href={url} class={viewPostLinkCss}>
+            View post
+          </a>
+        </article>
       </li>
     ))
   }

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import classNames from "classnames";
 import { themeVars } from "./theme.css";
 
 const hoverStyle = {
@@ -17,7 +18,18 @@ export const hyperlinkCss = style({
   ":focus": hoverStyle,
 });
 
-export const hyperlinkSuffixCss = style({
-  marginLeft: "0.25ch",
-  verticalAlign: "middle",
-});
+const hyperlinkDecorationCss = style({ verticalAlign: "middle" });
+
+export const hyperlinkPrefixCss = classNames(
+  style({
+    marginRight: "0.25ch",
+  }),
+  hyperlinkDecorationCss
+);
+
+export const hyperlinkSuffixCss = classNames(
+  style({
+    marginLeft: "0.25ch",
+  }),
+  hyperlinkDecorationCss
+);

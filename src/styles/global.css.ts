@@ -89,8 +89,8 @@ globalStyle("*", {
 });
 globalStyle("p", textSizeObjects.s);
 globalStyle("h1", textSizeObjects.xxl);
-globalStyle("h2, h3", textSizeObjects.xl);
-globalStyle("h2", textSizeObjects.l);
+globalStyle("h2", textSizeObjects.xl);
+globalStyle("h3", textSizeObjects.l);
 globalStyle("b", { fontWeight: fontWeights.bold });
 
 export const mainCss = style({

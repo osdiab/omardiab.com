@@ -20,27 +20,29 @@ const sectionCss = classNames(pageSectionCss, stackCss({ gap: "m" }));
 ---
 
 <Layout title="Omar Diab">
-  <header class={pageSectionCss}>
-    <h2
-      class={classNames(
-        textCss({ weight: "normal", size: "xl" }),
-        headingTextCss
-      )}
-    >
-      I design and implement simple, powerful, and maintainable products, from
-      start to finish.
-    </h2>
-  </header>
-  {
-    posts.length > 0 && (
-      <section id="posts" class={sectionCss}>
-        <h2>Posts from Omar</h2>
-        <BlogPosts posts={posts} />
-      </section>
-    )
-  }
-  <section id="workHistory" class={sectionCss}>
-    <h2>Work History</h2>
-    <JobListings />
-  </section>
+  <div class={stackCss({ gap: "xl" })}>
+    <header class={pageSectionCss}>
+      <h2
+        class={classNames(
+          textCss({ weight: "normal", size: "xl" }),
+          headingTextCss
+        )}
+      >
+        I design and implement simple, powerful, and maintainable products, from
+        start to finish.
+      </h2>
+    </header>
+    {
+      posts.length > 0 && (
+        <section id="posts" class={sectionCss}>
+          <h2>Recent Posts</h2>
+          <BlogPosts posts={posts} />
+        </section>
+      )
+    }
+    <section id="workHistory" class={sectionCss}>
+      <h2>Work History</h2>
+      <JobListings />
+    </section>
+  </div>
 </Layout>
