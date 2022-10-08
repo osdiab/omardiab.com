@@ -10,6 +10,7 @@ export const avatarCss = style({
   height: calc.multiply(headingVars.lineHeight, 3),
   aspectRatio: 1,
   objectFit: "cover",
+  borderRadius: "4px",
 });
 export const nameHighlightCss = style({
   color: themeVars.primary.normal,
