@@ -21,15 +21,11 @@ export const hyperlinkCss = style({
 const hyperlinkDecorationCss = style({ verticalAlign: "middle" });
 
 export const hyperlinkPrefixCss = classNames(
-  style({
-    marginRight: "0.25ch",
-  }),
+  style({ marginRight: "0.25ch" }),
   hyperlinkDecorationCss
 );
 
 export const hyperlinkSuffixCss = classNames(
-  style({
-    marginLeft: "0.25ch",
-  }),
+  style({ marginLeft: "0.25ch" }),
   hyperlinkDecorationCss
 );

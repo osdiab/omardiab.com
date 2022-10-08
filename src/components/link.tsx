@@ -8,6 +8,7 @@ import {
   hyperlinkSuffixCss,
 } from "../styles/hyperlink.css";
 import classNames from "classnames";
+import { textCss } from "../styles/text.css";
 
 export interface LinkProps extends Omit<ComponentProps<"a">, "prefix"> {
   prefix?: React.ReactNode;
@@ -28,7 +29,11 @@ export function Link({
   return (
     <a
       href={href}
-      className={classNames(hyperlinkCss, className)}
+      className={classNames(
+        hyperlinkCss,
+        textCss({ weight: "bold" }),
+        className
+      )}
       {...targetProps}
       {...rest}
     >

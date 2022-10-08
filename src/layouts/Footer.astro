@@ -1,37 +1,30 @@
 ---
-import classNames from "classnames";
 import { Link } from "../components/link";
-import { pageSectionCss } from "../styles/page-section.css";
 import { stackCss } from "../styles/spacing.css";
-import { textCss } from "../styles/text.css";
+import { footerCopyrightCss, footerCss } from "./footer.css";
 ---
 
-<footer class={stackCss({ gap: "m" })}>
-  <section
-    id="contact"
-    class={classNames(pageSectionCss, stackCss({ gap: "m" }))}
-  >
-    <h2>Get in touch</h2>
+<footer class={footerCss}>
+  <div class={stackCss({ gap: "xxs", alignItems: "center" })}>
     <p>
-      Feel free to{" "}
-      <Link href="mailto:hello@omardiab.com">shoot me an email</Link>
-      {" or "}
-      <Link href="https://linkedin.com/in/osdiab">check my LinkedIn.</Link>
+      <strong>Want to chat?</strong> Feel free to{" "}
+      <Link href="mailto:hello@omardiab.com">shoot me an email.</Link>
     </p>
-  </section>
-  <section
-    id="fork-github"
-    class={classNames(
-      pageSectionCss,
-      stackCss({ gap: "s", alignItems: "center" }),
-      textCss({ textAlign: "center" })
-    )}
-  >
     <p>
-      Like this site? Feel free to{" "}
-      <Link href="https://github.com/osdiab/omardiab.com">
-        fork it on Github and make it your own.
-      </Link>
-    </p><p>Omar Diab, {new Date().getFullYear()}</p>
-  </section>
+      This site is hosted globally with <Link href="https://deno.com/deploy"
+        >Deno Deploy</Link
+      >, built with <Link href="https://astro.build/">Astro</Link> and <Link
+        href="https://preactjs.com/">Preact</Link
+      >.
+    </p>
+
+    <p>
+      Like it? <Link href="https://github.com/osdiab/omardiab.com"
+        >Fork it.</Link
+      >
+    </p>
+  </div>
+  <p class={footerCopyrightCss}>
+    Omar Diab, {new Date().getFullYear()}
+  </p>
 </footer>
