@@ -14,6 +14,7 @@ export const headerCss = style({
   paddingTop: spacing.m,
   paddingBottom: spacing.m,
   zIndex: 100,
+  scrollPaddingTop: 0, // override default so it takes you to the top
 });
 
 export const headerNavCss = classNames(

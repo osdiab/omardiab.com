@@ -15,14 +15,14 @@ const navItems: NavItem[] = [
 ];
 ---
 
-<header class={headerCss}>
+<header class={headerCss} id="top">
   <div
     class={classNames(
       pageSectionCss,
       stackCss({ gap: "l", flexDirection: "row", alignItems: "center" })
     )}
   >
-    <a class={headerTitleCss} href="/">Omar Diab</a>
+    <a class={headerTitleCss} href="/#top">Omar Diab</a>
     <nav class={headerNavCss}>
       {navItems.map(({ title, url }) => <Link href={url}>{title}</Link>)}
     </nav>
