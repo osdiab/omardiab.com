@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import avatarImg from "../assets/avatar-600.jpg";
 import JobListings from "../components/job-listings.astro";
 import BlogPosts, { PostFrontmatter } from "../components/blog-posts.astro";
 import classNames from "classnames";
@@ -7,6 +8,11 @@ import { pageSectionCss } from "../styles/page-section.css";
 import { stackCss } from "../styles/spacing.css";
 import { headingTextCss } from "../components/home-page.css";
 import { textCss } from "../styles/text.css";
+import {
+  avatarCss,
+  headingTheme,
+  nameHighlightCss,
+} from "../layouts/index-header.css";
 
 const posts = (await Astro.glob<PostFrontmatter>("./post/*.mdx"))
   .filter((p) => !p.frontmatter.draft)
@@ -21,8 +27,22 @@ const sectionCss = classNames(pageSectionCss, stackCss({ gap: "m" }));
 ---
 
 <Layout title="Omar Diab">
-  <div class={stackCss({ gap: "xl" })}>
-    <header class={pageSectionCss}>
+  <article class={stackCss({ gap: "xl" })}>
+    <header
+      class={classNames(
+        headingTheme,
+        stackCss({ gap: "m", alignItems: "center", flexDirection: "row" }),
+        pageSectionCss
+      )}
+    >
+      <img class={avatarCss} src={avatarImg} alt="Portrait of Omar Diab" />
+
+      <h1 class={headingTextCss}>
+        Hi, I&rsquo;m <b class={nameHighlightCss}>Omar Diab</b>
+      </h1>
+    </header>
+
+    <section class={pageSectionCss}>
       <h2
         class={classNames(
           textCss({ weight: "normal", size: "xl" }),
@@ -32,18 +52,18 @@ const sectionCss = classNames(pageSectionCss, stackCss({ gap: "m" }));
         I design and implement simple, powerful, and maintainable products, from
         start to finish.
       </h2>
-    </header>
+    </section>
     {
       posts.length > 0 && (
-        <section id="posts" class={sectionCss}>
+        <section id="recent-posts" class={sectionCss}>
           <h2>Recent Posts</h2>
           <BlogPosts posts={posts} />
         </section>
       )
     }
-    <section id="workHistory" class={sectionCss}>
+    <section id="work-history" class={sectionCss}>
       <h2>Work History</h2>
       <JobListings />
     </section>
-  </div>
+  </article>
 </Layout>

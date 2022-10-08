@@ -1,26 +1,30 @@
 ---
 import classNames from "classnames";
-import avatarImg from "../assets/avatar-600.jpg";
-import { stackCss } from "../styles/spacing.css";
+import { Link } from "../components/link";
 import { pageSectionCss } from "../styles/page-section.css";
-import {
-  avatarCss,
-  headingTextCss,
-  headingTheme,
-  nameHighlightCss,
-} from "./header.css";
+import { stackCss } from "../styles/spacing.css";
+import { headerCss, headerNavCss, headerTitleCss } from "./header.css";
+
+interface NavItem {
+  title: string;
+  url: string;
+}
+const navItems: NavItem[] = [
+  { title: "Recent Posts", url: "/#recent-posts" },
+  { title: "Work History", url: "/#work-history" },
+];
 ---
 
-<header
-  class={classNames(
-    headingTheme,
-    stackCss({ gap: "m", alignItems: "center", flexDirection: "row" }),
-    pageSectionCss
-  )}
->
-  <img class={avatarCss} src={avatarImg} alt="Portrait of Omar Diab" />
-
-  <h1 class={headingTextCss}>
-    Hi, I&rsquo;m <b class={nameHighlightCss}>Omar Diab</b>
-  </h1>
+<header class={headerCss}>
+  <div
+    class={classNames(
+      pageSectionCss,
+      stackCss({ gap: "l", flexDirection: "row", alignItems: "center" })
+    )}
+  >
+    <a class={headerTitleCss} href="/">Omar Diab</a>
+    <nav class={headerNavCss}>
+      {navItems.map(({ title, url }) => <Link href={url}>{title}</Link>)}
+    </nav>
+  </div>
 </header>

@@ -1,0 +1,23 @@
+---
+import classNames from "classnames";
+import { pageSectionCss } from "../styles/page-section.css";
+import { stackCss } from "../styles/spacing.css";
+import Layout from "./Layout.astro";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+  };
+}
+
+const {
+  frontmatter: { title },
+} = Astro.props as Props;
+---
+
+<Layout title={title}>
+  <article class={classNames(pageSectionCss, stackCss({ gap: "xl" }))}>
+    <h2>{title}</h2>
+    <slot />
+  </article>
+</Layout>

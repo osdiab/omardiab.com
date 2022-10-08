@@ -42,6 +42,7 @@ export const stackCss = recipe({
       spaceBetween: { justifyContent: "space-between" },
       spaceAround: { justifyContent: "space-around" },
     },
+    flexWrap: { wrap: { flexWrap: "wrap" }, nowrap: { flexWrap: "nowrap" } },
   },
   defaultVariants: { display: "flex", flexDirection: "column" },
 });
